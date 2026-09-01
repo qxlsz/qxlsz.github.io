@@ -2,26 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>0xFF</title>
-    <meta
-      name="description"
-      content="0xFF is a public $1,000,000 paper desk. Fake money. Real tape. Every fill is published."
-    />
+    <meta name="description" content="0xFF live $1M paper book. Fake money. Real tape." />
     <meta property="og:title" content="0xFF" />
-    <meta
-      property="og:description"
-      content="Follow-only $1M paper trader. Beat the S&P after a 6.5% loan."
-    />
+    <meta property="og:description" content="Follow-only $1M paper trader. Live book." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://qxlsz.github.io/0xFF/" />
     <meta property="og:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="0xFF" />
-    <meta
-      name="twitter:description"
-      content="Follow-only $1M paper trader. Fake money. Real tape."
-    />
     <meta name="twitter:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
     <meta name="theme-color" content="#09090b" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -29,225 +19,252 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         --bg: #09090b;
+        --bg-elev: #111114;
         --fg: #f4f1ea;
         --muted: #9a9891;
         --line: #2a2a30;
-        --card: #111114;
         --long: #6eab8a;
+        --short: #d07070;
         --hold: #c4b58a;
-        --dot: #6eab8a;
+        --radius: 16px;
+        --safe-b: env(safe-area-inset-bottom, 0px);
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; background: var(--bg); color: var(--fg); }
+      html { -webkit-font-smoothing: antialiased; }
       body {
         font-family: "IBM Plex Sans", system-ui, sans-serif;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
+        line-height: 1.45;
+        min-height: 100dvh;
       }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-          radial-gradient(circle at 1px 1px, rgb(110 171 138 / 0.07) 1px, transparent 0);
-        background-size: 28px 28px;
-        mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
-      }
-      h1, h2 {
-        font-family: Newsreader, Georgia, serif;
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        text-wrap: balance;
-        line-height: 1.15;
-      }
+      button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
       a { color: var(--long); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .wrap { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; position: relative; }
-      .top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
+      .app { max-width: 1080px; margin: 0 auto; padding: 0 1rem 5.5rem; }
+      header.top {
+        position: sticky; top: 0; z-index: 20;
+        background: color-mix(in oklab, var(--bg) 92%, transparent);
+        backdrop-filter: blur(12px);
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 1rem; padding: 0.85rem 0 0.6rem;
       }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-      }
-      .hex {
-        width: 1.75rem;
-        height: 1.75rem;
-        flex: none;
-      }
+      .brand { display: flex; align-items: center; gap: 0.65rem; }
+      .hex { width: 1.45rem; height: 1.45rem; }
       .kicker {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: 0.72rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--long);
+        font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--long);
       }
       .clock {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: 0.72rem;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-        letter-spacing: 0.04em;
+        font-size: 0.7rem; color: var(--muted);
+        display: flex; align-items: center; gap: 0.4rem;
       }
-      .live {
-        width: 0.45rem;
-        height: 0.45rem;
-        border-radius: 999px;
-        background: var(--dot);
-        box-shadow: 0 0 0 4px rgb(110 171 138 / 0.12);
-      }
+      .live { width: 0.42rem; height: 0.42rem; border-radius: 99px; background: var(--long); box-shadow: 0 0 0 4px rgb(110 171 138 / 0.14); }
       .live.off { background: var(--muted); box-shadow: none; }
-      h1 { font-size: clamp(2.5rem, 8vw, 3.8rem); margin: 1.6rem 0 0.85rem; }
-      .lede { font-size: 1.125rem; color: var(--muted); max-width: 34rem; margin: 0; }
-      .hero-num {
-        margin: 2.4rem 0 0.35rem;
+      nav.tabs { display: none; gap: 0.25rem; }
+      nav.tabs button {
+        height: 2.1rem; padding: 0 0.85rem; border-radius: 999px; color: var(--muted); font-size: 0.84rem;
+      }
+      nav.tabs button.on { background: var(--bg-elev); color: var(--fg); }
+      .desk { display: grid; gap: 1.5rem; padding-top: 0.4rem; }
+      .hero-label { font-size: 0.8rem; color: var(--muted); margin: 0; }
+      .equity {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: clamp(2.2rem, 8vw, 3.35rem);
-        font-weight: 500;
-        letter-spacing: -0.04em;
+        font-size: clamp(2.15rem, 7vw, 3.15rem);
+        font-weight: 500; letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums; margin: 0.15rem 0 0;
       }
-      .row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.25rem 0 2.25rem; }
-      .row div { min-width: 6.5rem; }
-      .row dt { font-size: 0.75rem; color: var(--muted); }
-      .row dd { margin: 0.15rem 0 0; font-variant-numeric: tabular-nums; }
-      hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
-      h2 { font-size: 1.65rem; margin: 0 0 0.75rem; }
-      p { color: var(--fg); }
-      p.muted { color: var(--muted); }
-      ul { padding: 0; margin: 0; list-style: none; }
-      li {
-        padding: 0.9rem 0;
-        border-bottom: 1px solid var(--line);
-        display: grid;
-        grid-template-columns: 7.6rem 1fr;
-        gap: 0.75rem;
-        font-size: 0.95rem;
+      .pnl { font-size: 0.92rem; font-variant-numeric: tabular-nums; margin: 0.35rem 0 0; }
+      .up { color: var(--long); } .down { color: var(--short); }
+      .chart-wrap { height: 220px; margin: 0.85rem -0.25rem 0; position: relative; }
+      .chart-wrap svg { width: 100%; height: 100%; display: block; }
+      .ranges { display: flex; gap: 0.35rem; margin-top: 0.75rem; }
+      .ranges button {
+        flex: 1; height: 2.15rem; border-radius: 8px; font-size: 0.75rem; font-weight: 500; color: var(--muted);
       }
-      li span {
+      .ranges button.on.up { background: var(--long); color: var(--bg); }
+      .ranges button.on.down { background: var(--short); color: var(--bg); }
+      .power {
+        margin-top: 1.15rem; width: 100%;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.95rem 1rem; background: var(--bg-elev); border-radius: var(--radius);
+        text-align: left;
+      }
+      .power .lbl { font-size: 0.8rem; color: var(--muted); }
+      .power .val { font-variant-numeric: tabular-nums; font-size: 1.05rem; margin-top: 0.1rem; }
+      .chev { color: var(--muted); font-size: 1.1rem; }
+      .section { margin-top: 1.75rem; }
+      .section h2 { font-size: 1.05rem; font-weight: 500; margin: 0 0 0.15rem; }
+      .row {
+        display: flex; align-items: center; gap: 0.75rem;
+        width: 100%; padding: 0.8rem 0; border-bottom: 1px solid var(--line); text-align: left;
+      }
+      .mark {
+        width: 2.5rem; height: 2.5rem; border-radius: 99px; flex: none;
+        display: grid; place-items: center;
         font-family: "IBM Plex Mono", ui-monospace, monospace;
-        font-size: 0.72rem;
-        letter-spacing: 0.04em;
-        color: var(--hold);
-        padding-top: 0.2rem;
+        font-size: 0.68rem; font-weight: 500; letter-spacing: 0.02em;
       }
-      #fills { display: none; }
-      #fills li span { text-transform: uppercase; }
-      .btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        height: 2.75rem;
-        padding: 0 1.15rem;
-        border-radius: 0.5rem;
-        background: var(--fg);
-        color: var(--bg);
-        font-size: 0.875rem;
-        font-weight: 500;
-        text-decoration: none;
+      .meta { min-width: 0; flex: 1; }
+      .meta .name { font-size: 0.95rem; font-weight: 500; }
+      .meta .sub { font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+      .spark { width: 72px; height: 32px; flex: none; }
+      .px { text-align: right; min-width: 5.4rem; }
+      .px .n { font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+      .px .d { font-variant-numeric: tabular-nums; font-size: 0.75rem; }
+      .muted { color: var(--muted); }
+      .empty { color: var(--muted); font-size: 0.9rem; padding: 1.25rem 0; }
+      .fill { display: grid; grid-template-columns: 5.8rem 1fr auto; gap: 0.7rem; padding: 0.95rem 0; border-bottom: 1px solid var(--line); }
+      .fill .side { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 0.2rem; }
+      .fill .why { font-size: 0.92rem; }
+      .fill .when { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+      .fill .notional { font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+      .acct { margin-top: 0.5rem; }
+      .acct-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.95rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+      .acct-row dt { color: var(--muted); }
+      .acct-row dd { margin: 0; font-variant-numeric: tabular-nums; }
+      .note { color: var(--muted); font-size: 0.88rem; line-height: 1.5; margin: 1.25rem 0 0; max-width: 36rem; }
+      .dock {
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        background: color-mix(in oklab, var(--bg) 94%, transparent);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid var(--line);
+        padding: 0.35rem 0.5rem calc(0.45rem + var(--safe-b));
       }
-      .btn:hover { text-decoration: none; opacity: 0.9; }
-      .btn.ghost {
-        background: transparent;
-        color: var(--fg);
-        border: 1px solid var(--line);
+      .dock button { height: 2.9rem; color: var(--muted); font-size: 0.72rem; display: grid; place-items: center; }
+      .dock button.on { color: var(--fg); }
+      .sheet {
+        position: fixed; inset: 0; z-index: 40; background: rgb(0 0 0 / 0.5);
+        display: none; align-items: flex-end; justify-content: center;
       }
-      footer { margin-top: 3rem; font-size: 0.8rem; color: var(--muted); }
+      .sheet.on { display: flex; }
+      .sheet .card {
+        width: min(440px, 100%); background: var(--bg-elev);
+        border-radius: 20px 20px 0 0; padding: 1.15rem 1.15rem calc(1.25rem + var(--safe-b));
+        max-height: 86dvh; overflow: auto;
+      }
+      .sheet h3 { margin: 0; font-size: 1.35rem; font-weight: 500; }
+      .sheet .big {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 2rem; letter-spacing: -0.04em; margin: 0.65rem 0 0.2rem;
+        font-variant-numeric: tabular-nums;
+      }
+      .sheet .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1.1rem; }
+      .sheet .cell { background: var(--bg); border-radius: 12px; padding: 0.8rem 0.9rem; }
+      .sheet .cell dt { font-size: 0.72rem; color: var(--muted); }
+      .sheet .cell dd { margin: 0.2rem 0 0; font-variant-numeric: tabular-nums; }
+      .done { margin-top: 1.1rem; width: 100%; height: 2.75rem; border-radius: 12px; background: var(--fg); color: var(--bg); font-weight: 500; }
+      @media (min-width: 860px) {
+        .app { padding-bottom: 2.5rem; }
+        nav.tabs { display: flex; }
+        .dock { display: none; }
+        .desk { grid-template-columns: 1.2fr 0.9fr; align-items: start; gap: 2.4rem; padding-top: 0.8rem; }
+        .chart-wrap { height: 280px; }
+        .hold-col { position: sticky; top: 4.2rem; }
+        .sheet { align-items: center; }
+        .sheet .card { border-radius: 20px; }
+      }
       @media (prefers-reduced-motion: reduce) {
         .live { box-shadow: none; }
       }
     </style>
   </head>
   <body>
-    <main class="wrap">
-      <div class="top">
+    <div class="app">
+      <header class="top">
         <div class="brand">
           <svg class="hex" viewBox="0 0 100 100" aria-hidden="true">
             <polygon points="50,8 90,31 90,69 50,92 10,69 10,31" fill="#6eab8a" />
           </svg>
           <p class="kicker">0xFF</p>
         </div>
-        <p class="clock" id="clock">
-          <span class="live off" id="pulse"></span>
-          <span id="session">NYSE</span>
-        </p>
-      </div>
+        <nav class="tabs" id="tabs-desk"></nav>
+        <p class="clock"><span class="live off" id="pulse"></span><span id="session">NYSE</span></p>
+      </header>
 
-      <h1>A million dollars of play money, traded in public.</h1>
-      <p class="lede">
-        Follow-only paper desk. Fake money, real tape. Every buy and sell is
-        published with a why you can actually read.
-      </p>
+      <main id="root"></main>
+    </div>
+    <nav class="dock" id="dock"></nav>
+    <div class="sheet" id="sheet"></div>
 
-      <p class="hero-num" id="equity">$1,000,000</p>
-      <p class="muted" id="equity-sub">Starting cash · treated as a 6.5% loan that has to beat the S&P.</p>
-
-      <dl class="row">
-        <div>
-          <dt>Trades</dt>
-          <dd id="stat-trades">—</dd>
-        </div>
-        <div>
-          <dt>Last fill</dt>
-          <dd id="stat-last">—</dd>
-        </div>
-        <div>
-          <dt>Invested</dt>
-          <dd id="stat-invested">—</dd>
-        </div>
-        <div>
-          <dt>Names</dt>
-          <dd id="stat-names">Up to 22</dd>
-        </div>
-      </dl>
-
-      <div class="btns">
-        <a class="btn" href="https://github.com/qxlsz/0xFF">Open the repo</a>
-        <a class="btn ghost" href="https://github.com/qxlsz/0xFF#how-it-trades">How it trades</a>
-      </div>
-
-      <hr />
-
-      <section id="fills">
-        <h2>Latest fills</h2>
-        <ul id="fill-list"></ul>
-        <hr />
-      </section>
-
-      <h2>How the desk is built</h2>
-      <ul>
-        <li><span>Ballast</span>About 16% in the S&P so it cannot lag the index forever.</li>
-        <li><span>Day trader</span>Flow and breakout rotate the same session. Tight stops. Not frozen.</li>
-        <li><span>Quality</span>Mega-caps and sector funds stay until stop, target, or the thesis dies.</li>
-        <li><span>Crypto</span>Bitcoin, Ethereum, Solana around the clock. Loud alts only when the tape is moving.</li>
-        <li><span>Loan</span>The million is a 6.5% loan. After interest, beat SPY or it was just parking cash.</li>
-      </ul>
-
-      <footer>
-        Play money only. Not advice. Not a broker.
-        <br />
-        Live at
-        <a href="https://qxlsz.github.io/0xFF/">qxlsz.github.io/0xFF</a>
-        ·
-        <a href="https://github.com/qxlsz/0xFF">github.com/qxlsz/0xFF</a>
-      </footer>
-    </main>
     <script>
       (function () {
-        var LABELS = { pre: "Pre-market", open: "Open", after: "After hours", closed: "Closed" };
-        function tick() {
+        var VIEWS = [
+          { id: "investing", label: "Investing" },
+          { id: "activity", label: "Activity" },
+          { id: "account", label: "Account" },
+        ];
+        var RANGES = [
+          { id: "1d", label: "1D", ms: 86400000 },
+          { id: "1w", label: "1W", ms: 7 * 86400000 },
+          { id: "1m", label: "1M", ms: 30 * 86400000 },
+          { id: "all", label: "ALL", ms: 0 },
+        ];
+        var MARKS = [
+          { bg: "#1c2a24", fg: "#8fbfa3" },
+          { bg: "#2a261c", fg: "#c4b58a" },
+          { bg: "#2a1c1c", fg: "#d09090" },
+          { bg: "#1c222a", fg: "#8aa4c4" },
+          { bg: "#241c2a", fg: "#b49ac4" },
+        ];
+        var state = {
+          view: "investing",
+          range: "all",
+          book: null,
+          selected: null,
+          hover: null,
+        };
+
+        function shown(ticker) {
+          return String(ticker || "").replace(/-USD$/, "");
+        }
+        function mark(ticker) {
+          var h = 0, s = shown(ticker);
+          for (var i = 0; i < s.length; i++) h = (h * 33 + s.charCodeAt(i)) >>> 0;
+          return MARKS[h % MARKS.length];
+        }
+        function money(n, d) {
+          if (!Number.isFinite(n)) return "—";
+          return n.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: d == null ? 2 : d,
+            maximumFractionDigits: d == null ? 2 : d,
+          });
+        }
+        function signed(n, d) {
+          if (!Number.isFinite(n)) return "—";
+          var digits = d == null ? (Math.abs(n) >= 100 ? 0 : 2) : d;
+          var sign = n > 0 ? "+" : n < 0 ? "−" : "";
+          return sign + money(Math.abs(n), digits);
+        }
+        function pct(n) {
+          if (!Number.isFinite(n)) return "—";
+          return (n > 0 ? "+" : "") + n.toFixed(2) + "%";
+        }
+        function qty(n) {
+          if (!Number.isFinite(n)) return "—";
+          if (Math.abs(n - Math.round(n)) < 1e-8) return Math.round(n).toLocaleString("en-US");
+          return n.toLocaleString("en-US", { maximumFractionDigits: n >= 1 ? 4 : 6 });
+        }
+        function when(iso) {
+          if (!iso) return "";
+          return new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/New_York",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            timeZoneName: "short",
+          }).format(new Date(iso));
+        }
+        function nyClock() {
           var parts = new Intl.DateTimeFormat("en-US", {
             timeZone: "America/New_York",
             weekday: "short",
@@ -260,107 +277,310 @@
             var p = parts.find(function (x) { return x.type === t; });
             return p ? p.value : "";
           };
-          var weekday = get("weekday");
           var hour = Number(get("hour"));
           var minute = Number(get("minute"));
-          var second = Number(get("second"));
           var mins = hour * 60 + minute;
-          var weekend = weekday === "Sat" || weekday === "Sun";
+          var weekend = get("weekday") === "Sat" || get("weekday") === "Sun";
           var session = "closed";
           if (!weekend) {
             if (mins >= 240 && mins < 570) session = "pre";
             else if (mins >= 570 && mins < 960) session = "open";
             else if (mins >= 960 && mins < 1200) session = "after";
           }
-          var clock =
+          var labels = { pre: "Pre-market", open: "Open", after: "After hours", closed: "Closed" };
+          document.getElementById("session").textContent =
             String(hour).padStart(2, "0") +
             ":" +
             String(minute).padStart(2, "0") +
             ":" +
-            String(second).padStart(2, "0");
-          var live = session !== "closed";
-          document.getElementById("session").textContent =
-            "NYSE " + clock + " · " + LABELS[session];
-          document.getElementById("pulse").className = live ? "live" : "live off";
+            String(get("second")).padStart(2, "0") +
+            " ET · " +
+            labels[session];
+          document.getElementById("pulse").className = session === "closed" ? "live off" : "live";
         }
-        tick();
-        setInterval(tick, 1000);
-
-        function money(n) {
-          return "$" + Math.round(n).toLocaleString("en-US");
-        }
-        function pct(n) {
-          return (n * 100).toFixed(0) + "%";
-        }
-        function fillWhen(iso) {
-          if (!iso) return "";
-          try {
-            return new Intl.DateTimeFormat("en-US", {
-              timeZone: "America/New_York",
-              month: "short",
-              day: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-              hourCycle: "h23",
-            }).format(new Date(iso));
-          } catch {
-            return "";
+        function curveFor(book, range) {
+          var pts = (book.curve || []).slice();
+          if (!pts.length) {
+            return [{ t: Date.now() - 1, equity: book.startCash || 1000000 }, { t: Date.now(), equity: book.equity }];
           }
+          var spec = RANGES.find(function (r) { return r.id === range; });
+          if (spec && spec.ms) {
+            var cut = Date.now() - spec.ms;
+            var keep = pts.filter(function (p) { return p.t >= cut; });
+            if (keep.length >= 2) pts = keep;
+          }
+          return pts;
         }
-        function paint(book) {
-          if (!book) return;
-          var eq = Number(book.equity);
-          if (Number.isFinite(eq)) {
-            document.getElementById("equity").textContent = money(eq);
-          }
-          var last = book.last;
-          var lastLine = last
-            ? (last.side || "").toUpperCase() + " " + last.ticker
-            : "—";
-          document.getElementById("stat-last").textContent = lastLine;
-          document.getElementById("stat-trades").textContent =
-            book.trades != null ? String(book.trades) : "—";
-          document.getElementById("stat-invested").textContent =
-            book.deployPct != null ? pct(book.deployPct) : "—";
-          document.getElementById("stat-names").textContent =
-            book.names != null ? String(book.names) : "—";
-          var sub = "Live paper equity · $1,000,000 start · 6.5% loan vs S&P";
-          if (last && last.ticker) {
-            sub =
-              lastLine +
-              (last.at ? " · " + fillWhen(last.at) : "") +
-              " · fake money";
-          }
-          document.getElementById("equity-sub").textContent = sub;
-          var fills = Array.isArray(book.fills) ? book.fills.slice(0, 8) : [];
-          var list = document.getElementById("fill-list");
-          var box = document.getElementById("fills");
-          if (!fills.length) {
-            box.style.display = "none";
+        function windowPnl(book, range) {
+          var pts = curveFor(book, range);
+          var open = pts[0] ? pts[0].equity : book.startCash;
+          var close = state.hover != null ? state.hover : (pts[pts.length - 1] ? pts[pts.length - 1].equity : book.equity);
+          var usd = close - open;
+          var p = open > 0 ? (usd / open) * 100 : 0;
+          return { open: open, close: close, usd: usd, pct: p, up: usd >= 0 };
+        }
+        function sparkPath(values) {
+          if (!values || values.length < 2) return "";
+          var min = Math.min.apply(null, values);
+          var max = Math.max.apply(null, values);
+          var span = max - min || 1;
+          return values
+            .map(function (v, i) {
+              var x = (i / (values.length - 1)) * 100;
+              var y = 30 - ((v - min) / span) * 26 - 2;
+              return (i ? "L" : "M") + x.toFixed(2) + " " + y.toFixed(2);
+            })
+            .join(" ");
+        }
+        function chartSvg(pts, up) {
+          if (pts.length < 2) return "";
+          var w = 640, h = 220, pad = 8;
+          var ys = pts.map(function (p) { return p.equity; });
+          var min = Math.min.apply(null, ys);
+          var max = Math.max.apply(null, ys);
+          var span = Math.max(max - min, Math.abs(max) * 0.004, 40);
+          min -= span * 0.12;
+          max += span * 0.08;
+          function X(i) { return pad + (i / (pts.length - 1)) * (w - pad * 2); }
+          function Y(v) { return pad + (1 - (v - min) / (max - min)) * (h - pad * 2); }
+          var d = pts
+            .map(function (p, i) {
+              return (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(p.equity).toFixed(1);
+            })
+            .join(" ");
+          var fill = d + " L" + X(pts.length - 1).toFixed(1) + " " + (h - 2) + " L" + X(0).toFixed(1) + " " + (h - 2) + " Z";
+          var color = up ? "var(--long)" : "var(--short)";
+          var gid = up ? "gUp" : "gDn";
+          return (
+            '<svg viewBox="0 0 ' + w + " " + h + '" preserveAspectRatio="none" aria-hidden="true">' +
+            "<defs><linearGradient id='" + gid + "' x1='0' y1='0' x2='0' y2='1'>" +
+            "<stop offset='0' stop-color='" + (up ? "#6eab8a" : "#d07070") + "' stop-opacity='0.28'/>" +
+            "<stop offset='1' stop-color='" + (up ? "#6eab8a" : "#d07070") + "' stop-opacity='0'/>" +
+            "</linearGradient></defs>" +
+            "<path d='" + fill + "' fill='url(#" + gid + ")'></path>" +
+            "<path d='" + d + "' fill='none' stroke='" + color + "' stroke-width='2.2' vector-effect='non-scaling-stroke'></path>" +
+            "</svg>"
+          );
+        }
+        function holdingRow(h) {
+          var m = mark(h.ticker);
+          var up = (h.dayPct || 0) >= 0;
+          var spark = sparkPath(h.sparkline);
+          return (
+            '<button class="row" data-open="' + h.ticker + '">' +
+            '<span class="mark" style="background:' + m.bg + ";color:" + m.fg + '">' + shown(h.ticker).slice(0, 2) + "</span>" +
+            '<span class="meta"><span class="name">' + shown(h.ticker) + "</span>" +
+            '<span class="sub">' + qty(h.qty) + (h.crypto ? " " + shown(h.ticker) : " shares") + "</span></span>" +
+            (spark
+              ? '<svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none"><path d="' +
+                spark +
+                '" fill="none" stroke="' +
+                (up ? "var(--long)" : "var(--short)") +
+                '" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>'
+              : '<span class="spark"></span>') +
+            '<span class="px"><span class="n">' + money(h.last) + '</span><span class="d ' +
+            (up ? "up" : "down") + '">' + pct(h.dayPct) + "</span></span></button>"
+          );
+        }
+        function navHtml(id) {
+          return VIEWS.map(function (v) {
+            return '<button type="button" data-view="' + v.id + '" class="' + (state.view === v.id ? "on" : "") + '">' + v.label + "</button>";
+          }).join("");
+        }
+        function investing(book) {
+          var win = windowPnl(book, state.range);
+          var pts = curveFor(book, state.range);
+          var shownEq = state.hover != null ? state.hover : book.equity;
+          var stocks = (book.holdings || []).filter(function (h) { return !h.crypto; });
+          var crypto = (book.holdings || []).filter(function (h) { return h.crypto; });
+          var rangeBtns = RANGES.map(function (r) {
+            return (
+              '<button type="button" data-range="' + r.id + '" class="' +
+              (state.range === r.id ? "on " + (win.up ? "up" : "down") : "") +
+              '">' + r.label + "</button>"
+            );
+          }).join("");
+          return (
+            '<div class="desk">' +
+            "<section>" +
+            '<p class="hero-label">Investing</p>' +
+            '<p class="equity" id="hero-eq">' + money(shownEq) + "</p>" +
+            '<p class="pnl ' + (win.up ? "up" : "down") + '">' +
+            signed(win.usd) + " (" + pct(win.pct) + ") " +
+            (RANGES.find(function (r) { return r.id === state.range; }).label === "ALL" ? "All time" : RANGES.find(function (r) { return r.id === state.range; }).label) +
+            "</p>" +
+            '<div class="chart-wrap" id="chart">' + chartSvg(pts, win.up) + "</div>" +
+            '<div class="ranges">' + rangeBtns + "</div>" +
+            '<button class="power" data-view="account"><span><div class="lbl">Buying power</div><div class="val">' +
+            money(book.buyingPower || book.cash) +
+            "</div></span><span class="chev">›</span></button>" +
+            "</section>" +
+            '<section class="hold-col">' +
+            (stocks.length
+              ? '<div class="section"><h2>Stocks</h2>' + stocks.map(holdingRow).join("") + "</div>"
+              : "") +
+            (crypto.length
+              ? '<div class="section"><h2>Crypto</h2>' + crypto.map(holdingRow).join("") + "</div>"
+              : "") +
+            (!stocks.length && !crypto.length ? '<p class="empty">The desk has not bought yet.</p>' : "") +
+            "</section></div>"
+          );
+        }
+        function activity(book) {
+          var fills = book.fills || [];
+          if (!fills.length) return '<p class="empty">No fills yet.</p>';
+          return (
+            "<section><p class='hero-label'>Activity</p><h1 class='equity' style='font-size:1.8rem'>Recent trades</h1>" +
+            fills
+              .map(function (f) {
+                var tone = f.side === "buy" ? "up" : "down";
+                return (
+                  '<article class="fill"><span class="side ' + tone + '">' +
+                  (f.side || "") +
+                  " " +
+                  shown(f.ticker) +
+                  '</span><div><div class="why">' +
+                  (f.reason || "") +
+                  '</div><div class="when">' +
+                  when(f.at) +
+                  " · " +
+                  qty(f.qty) +
+                  " @ " +
+                  money(f.price) +
+                  '</div></div><div class="notional">' +
+                  money((f.qty || 0) * (f.price || 0), 0) +
+                  "</div></article>"
+                );
+              })
+              .join("") +
+            "</section>"
+          );
+        }
+        function account(book) {
+          var yld = book.equity - (book.startCash || 1000000);
+          return (
+            "<section class='acct'><p class='hero-label'>Account</p>" +
+            "<p class='equity'>" + money(book.equity) + "</p>" +
+            "<p class='note'>Follow-only paper desk. Fake money, real tape. The million is a 6.5% loan that has to beat the S&P.</p>" +
+            "<dl>" +
+            row("Buying power", money(book.buyingPower || book.cash)) +
+            row("Invested", money(book.invested)) +
+            row("Positions", String(book.names || 0)) +
+            row("Trades", String(book.trades || 0)) +
+            row("All-time", signed(yld, 0), yld) +
+            row("Last fill", book.last ? (book.last.side + " " + shown(book.last.ticker)).toUpperCase() : "—") +
+            row("Tape", book.regimeLabel || book.regime || "—") +
+            "</dl>" +
+            "<p class='note'>Play money only. Not advice. Not a broker. Source: <a href='https://github.com/qxlsz/0xFF'>github.com/qxlsz/0xFF</a></p>" +
+            "</section>"
+          );
+        }
+        function row(label, value, tone) {
+          var cls = tone == null ? "" : tone >= 0 ? "up" : "down";
+          return '<div class="acct-row"><dt>' + label + "</dt><dd class='" + cls + "'>" + value + "</dd></div>";
+        }
+        function render() {
+          var book = state.book;
+          document.getElementById("tabs-desk").innerHTML = navHtml();
+          document.getElementById("dock").innerHTML = navHtml();
+          var root = document.getElementById("root");
+          if (!book) {
+            root.innerHTML = '<p class="empty">Loading the live book…</p>';
             return;
           }
-          list.innerHTML = fills
-            .map(function (f) {
-              var label = (f.side || "").toUpperCase() + " " + (f.ticker || "");
-              var why = f.reason || "";
-              return (
-                "<li><span>" +
-                label +
-                "</span>" +
-                why +
-                "</li>"
-              );
-            })
-            .join("");
-          box.style.display = "block";
+          if (state.view === "activity") root.innerHTML = activity(book);
+          else if (state.view === "account") root.innerHTML = account(book);
+          else root.innerHTML = investing(book);
+          bind();
+          renderSheet();
         }
-        var bucket = Math.floor(Date.now() / 300000);
-        fetch("./book.json?v=" + bucket, { cache: "no-store" })
-          .then(function (r) {
-            return r.ok ? r.json() : null;
-          })
-          .then(paint)
-          .catch(function () {});
+        function renderSheet() {
+          var el = document.getElementById("sheet");
+          var h = state.selected;
+          if (!h) {
+            el.className = "sheet";
+            el.innerHTML = "";
+            return;
+          }
+          var up = (h.dayPct || 0) >= 0;
+          el.className = "sheet on";
+          el.innerHTML =
+            '<div class="card" role="dialog" aria-label="' + shown(h.ticker) + '">' +
+            "<h3>" + shown(h.ticker) + "</h3>" +
+            '<p class="muted">' + (h.name || "") + "</p>" +
+            '<p class="big">' + money(h.last) + "</p>" +
+            '<p class="' + (up ? "up" : "down") + '">' + pct(h.dayPct) + " today</p>" +
+            '<div class="grid">' +
+            '<div class="cell"><dt>Shares</dt><dd>' + qty(h.qty) + "</dd></div>" +
+            '<div class="cell"><dt>Avg cost</dt><dd>' + money(h.avgCost) + "</dd></div>" +
+            '<div class="cell"><dt>Market value</dt><dd>' + money(h.value) + "</dd></div>" +
+            '<div class="cell"><dt>Total return</dt><dd class="' + (h.pnl >= 0 ? "up" : "down") + '">' + signed(h.pnl) + "</dd></div>" +
+            "</div>" +
+            '<button class="done" type="button" data-close="1">Done</button></div>';
+        }
+        function bind() {
+          document.querySelectorAll("[data-view]").forEach(function (btn) {
+            btn.onclick = function () {
+              state.view = btn.getAttribute("data-view");
+              state.selected = null;
+              state.hover = null;
+              render();
+            };
+          });
+          document.querySelectorAll("[data-range]").forEach(function (btn) {
+            btn.onclick = function () {
+              state.range = btn.getAttribute("data-range");
+              state.hover = null;
+              render();
+            };
+          });
+          document.querySelectorAll("[data-open]").forEach(function (btn) {
+            btn.onclick = function () {
+              var t = btn.getAttribute("data-open");
+              state.selected = (state.book.holdings || []).find(function (h) { return h.ticker === t; }) || null;
+              renderSheet();
+            };
+          });
+          var chart = document.getElementById("chart");
+          if (chart && state.book) {
+            var pts = curveFor(state.book, state.range);
+            chart.onmousemove = function (ev) {
+              var r = chart.getBoundingClientRect();
+              var x = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+              var i = Math.round(x * (pts.length - 1));
+              var p = pts[i];
+              if (!p) return;
+              state.hover = p.equity;
+              var hero = document.getElementById("hero-eq");
+              if (hero) hero.textContent = money(p.equity);
+            };
+            chart.onmouseleave = function () {
+              state.hover = null;
+              var hero = document.getElementById("hero-eq");
+              if (hero) hero.textContent = money(state.book.equity);
+            };
+          }
+        }
+        document.getElementById("sheet").addEventListener("click", function (ev) {
+          if (ev.target === this || ev.target.getAttribute("data-close")) {
+            state.selected = null;
+            renderSheet();
+          }
+        });
+        function load() {
+          var v = Math.floor(Date.now() / 15000);
+          return fetch("./book.json?v=" + v, { cache: "no-store" })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (book) {
+              if (book) state.book = book;
+              render();
+            })
+            .catch(function () { render(); });
+        }
+        nyClock();
+        setInterval(nyClock, 1000);
+        load();
+        setInterval(load, 30000);
       })();
     </script>
   </body>
