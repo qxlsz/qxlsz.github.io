@@ -143,6 +143,8 @@
         color: var(--hold);
         padding-top: 0.2rem;
       }
+      #fills { display: none; }
+      #fills li span { text-transform: uppercase; }
       .btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
       .btn {
         display: inline-flex;
@@ -189,25 +191,25 @@
         published with a why you can actually read.
       </p>
 
-      <p class="hero-num">$1,000,000</p>
-      <p class="muted">Starting cash · treated as a 6.5% loan that has to beat the S&P.</p>
+      <p class="hero-num" id="equity">$1,000,000</p>
+      <p class="muted" id="equity-sub">Starting cash · treated as a 6.5% loan that has to beat the S&P.</p>
 
       <dl class="row">
         <div>
-          <dt>Scan</dt>
-          <dd>Every 5 min</dd>
+          <dt>Trades</dt>
+          <dd id="stat-trades">—</dd>
         </div>
         <div>
-          <dt>Research</dt>
-          <dd>Every 3 hours</dd>
+          <dt>Last fill</dt>
+          <dd id="stat-last">—</dd>
         </div>
         <div>
-          <dt>Deploy</dt>
-          <dd>~84% working</dd>
+          <dt>Invested</dt>
+          <dd id="stat-invested">—</dd>
         </div>
         <div>
-          <dt>Book</dt>
-          <dd>Up to 22 names</dd>
+          <dt>Names</dt>
+          <dd id="stat-names">Up to 22</dd>
         </div>
       </dl>
 
@@ -217,6 +219,12 @@
       </div>
 
       <hr />
+
+      <section id="fills">
+        <h2>Latest fills</h2>
+        <ul id="fill-list"></ul>
+        <hr />
+      </section>
 
       <h2>How the desk is built</h2>
       <ul>
@@ -277,6 +285,82 @@
         }
         tick();
         setInterval(tick, 1000);
+
+        function money(n) {
+          return "$" + Math.round(n).toLocaleString("en-US");
+        }
+        function pct(n) {
+          return (n * 100).toFixed(0) + "%";
+        }
+        function fillWhen(iso) {
+          if (!iso) return "";
+          try {
+            return new Intl.DateTimeFormat("en-US", {
+              timeZone: "America/New_York",
+              month: "short",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hourCycle: "h23",
+            }).format(new Date(iso));
+          } catch {
+            return "";
+          }
+        }
+        function paint(book) {
+          if (!book) return;
+          var eq = Number(book.equity);
+          if (Number.isFinite(eq)) {
+            document.getElementById("equity").textContent = money(eq);
+          }
+          var last = book.last;
+          var lastLine = last
+            ? (last.side || "").toUpperCase() + " " + last.ticker
+            : "—";
+          document.getElementById("stat-last").textContent = lastLine;
+          document.getElementById("stat-trades").textContent =
+            book.trades != null ? String(book.trades) : "—";
+          document.getElementById("stat-invested").textContent =
+            book.deployPct != null ? pct(book.deployPct) : "—";
+          document.getElementById("stat-names").textContent =
+            book.names != null ? String(book.names) : "—";
+          var sub = "Live paper equity · $1,000,000 start · 6.5% loan vs S&P";
+          if (last && last.ticker) {
+            sub =
+              lastLine +
+              (last.at ? " · " + fillWhen(last.at) : "") +
+              " · fake money";
+          }
+          document.getElementById("equity-sub").textContent = sub;
+          var fills = Array.isArray(book.fills) ? book.fills.slice(0, 8) : [];
+          var list = document.getElementById("fill-list");
+          var box = document.getElementById("fills");
+          if (!fills.length) {
+            box.style.display = "none";
+            return;
+          }
+          list.innerHTML = fills
+            .map(function (f) {
+              var label = (f.side || "").toUpperCase() + " " + (f.ticker || "");
+              var why = f.reason || "";
+              return (
+                "<li><span>" +
+                label +
+                "</span>" +
+                why +
+                "</li>"
+              );
+            })
+            .join("");
+          box.style.display = "block";
+        }
+        var bucket = Math.floor(Date.now() / 300000);
+        fetch("./book.json?v=" + bucket, { cache: "no-store" })
+          .then(function (r) {
+            return r.ok ? r.json() : null;
+          })
+          .then(paint)
+          .catch(function () {});
       })();
     </script>
   </body>
