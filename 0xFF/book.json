@@ -1,0 +1,249 @@
+{
+  "asOf": "2026-09-01T05:09:50.900Z",
+  "equity": 999385.83,
+  "cash": 527591.7236278802,
+  "invested": 471794.10637211974,
+  "deployPct": 0.4720840462307933,
+  "trades": 17,
+  "names": 11,
+  "regime": "chop",
+  "last": {
+    "side": "buy",
+    "ticker": "SOL-USD",
+    "at": "2026-09-01T04:23:43.342Z",
+    "price": 103.992,
+    "reason": "We bought Solana USD to keep a crypto stake in the portfolio."
+  },
+  "positions": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "qty": 77,
+      "last": 316.85,
+      "avgCost": 317.00840000000005,
+      "sleeve": "compounders",
+      "value": 24397.45
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "qty": 65,
+      "last": 370.34,
+      "avgCost": 370.5252,
+      "sleeve": "compounders",
+      "value": 24072.1
+    },
+    {
+      "ticker": "WMT",
+      "name": "Walmart Inc.",
+      "qty": 232,
+      "last": 104.87,
+      "avgCost": 104.92240000000001,
+      "sleeve": "compounders",
+      "value": 24329.84
+    },
+    {
+      "ticker": "SPY",
+      "name": "SPDR S&P 500",
+      "qty": 18,
+      "last": 767.05,
+      "avgCost": 767.4335,
+      "sleeve": "shock",
+      "value": 13806.9
+    },
+    {
+      "ticker": "BTC-USD",
+      "name": "Bitcoin USD",
+      "qty": 0.875251,
+      "last": 78708.54,
+      "avgCost": 78777.73459575207,
+      "sleeve": "crypto",
+      "value": 68889.72834353999
+    },
+    {
+      "ticker": "ETH-USD",
+      "name": "Ethereum USD",
+      "qty": 27.855652,
+      "last": 2470.32,
+      "avgCost": 2475.872478184234,
+      "sleeve": "crypto",
+      "value": 68812.37424864
+    },
+    {
+      "ticker": "SOL-USD",
+      "name": "Solana USD",
+      "qty": 451.707679,
+      "last": 103.64,
+      "avgCost": 103.93231864965219,
+      "sleeve": "crypto",
+      "value": 46814.98385156
+    },
+    {
+      "ticker": "XRP-USD",
+      "name": "XRP USD",
+      "qty": 15145.150889,
+      "last": 1.3814,
+      "avgCost": 1.3855,
+      "sleeve": "crypto",
+      "value": 20921.5114380646
+    },
+    {
+      "ticker": "LINK-USD",
+      "name": "Chainlink USD",
+      "qty": 1144.823459,
+      "last": 11.41,
+      "avgCost": 11.4557,
+      "sleeve": "crypto",
+      "value": 13062.43566719
+    },
+    {
+      "ticker": "AVAX-USD",
+      "name": "Avalanche USD",
+      "qty": 2882.917945,
+      "last": 7.266,
+      "avgCost": 7.2786,
+      "sleeve": "crypto",
+      "value": 20947.28178837
+    },
+    {
+      "ticker": "SPY",
+      "name": "State Street SPDR S&P 500 ETF T",
+      "qty": 190,
+      "last": 767.05,
+      "avgCost": 767.4335,
+      "sleeve": "compounders",
+      "value": 145739.5
+    }
+  ],
+  "fills": [
+    {
+      "side": "buy",
+      "ticker": "SOL-USD",
+      "at": "2026-09-01T04:23:43.342Z",
+      "qty": 115.146827,
+      "price": 103.992,
+      "reason": "We bought Solana USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "ETH-USD",
+      "at": "2026-09-01T04:23:43.342Z",
+      "qty": 13.728344,
+      "price": 2476.2175,
+      "reason": "We bought Ethereum USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "BTC-USD",
+      "at": "2026-09-01T04:23:43.342Z",
+      "qty": 0.431145,
+      "price": 78807.8742,
+      "reason": "We bought Bitcoin USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "WMT",
+      "at": "2026-09-01T04:23:43.342Z",
+      "qty": 139,
+      "price": 104.9224,
+      "reason": "We bought Walmart Inc. as a long-term holding in a large U.S. company."
+    },
+    {
+      "side": "buy",
+      "ticker": "AVGO",
+      "at": "2026-09-01T04:23:43.342Z",
+      "qty": 39,
+      "price": 370.5252,
+      "reason": "We bought Broadcom Inc. as a long-term holding in a large U.S. company."
+    },
+    {
+      "side": "buy",
+      "ticker": "AAPL",
+      "at": "2026-09-01T04:23:43.341Z",
+      "qty": 47,
+      "price": 317.0084,
+      "reason": "We bought Apple Inc. as a long-term holding in a large U.S. company."
+    },
+    {
+      "side": "buy",
+      "ticker": "SPY",
+      "at": "2026-09-01T04:23:43.337Z",
+      "qty": 190,
+      "price": 767.4335,
+      "reason": "We bought S&P 500 as a simple stand-in for the overall stock market."
+    },
+    {
+      "side": "buy",
+      "ticker": "AVAX-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 2882.917945,
+      "price": 7.2786,
+      "reason": "We bought Avalanche USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "LINK-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 1144.823459,
+      "price": 11.4557,
+      "reason": "We bought Chainlink USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "XRP-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 15145.150889,
+      "price": 1.3855,
+      "reason": "We bought XRP USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "SOL-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 336.560852,
+      "price": 103.9119,
+      "reason": "We bought Solana USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "ETH-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 14.127308,
+      "price": 2475.5372,
+      "reason": "We bought Ethereum USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "BTC-USD",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 0.444106,
+      "price": 78748.4746,
+      "reason": "We bought Bitcoin USD to keep a crypto stake in the portfolio."
+    },
+    {
+      "side": "buy",
+      "ticker": "SPY",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 18,
+      "price": 767.4335,
+      "reason": "We bought S&P 500 as a simple stand-in for the overall stock market."
+    },
+    {
+      "side": "buy",
+      "ticker": "WMT",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 93,
+      "price": 104.9224,
+      "reason": "We bought Walmart Inc. as a long-term holding in a large U.S. company."
+    },
+    {
+      "side": "buy",
+      "ticker": "AVGO",
+      "at": "2026-09-01T04:22:28.114Z",
+      "qty": 26,
+      "price": 370.5252,
+      "reason": "We bought Broadcom Inc. as a long-term holding in a large U.S. company."
+    }
+  ],
+  "brainRev": 6
+}
