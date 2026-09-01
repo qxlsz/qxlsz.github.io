@@ -432,12 +432,24 @@
   function research(book) {
     var dossiers = book.dossiers || [];
     var tech = book.technique;
+    var last = book.lastResearchAt;
+    var next = last ? last + 3 * 60 * 60 * 1000 : null;
+    var due = !last || (next && Date.now() >= next);
+    var whenLine = last
+      ? "Last write " +
+        when(new Date(last).toISOString()) +
+        " · " +
+        ago(new Date(last).toISOString()) +
+        ". " +
+        (due
+          ? "Next write is due on this cycle."
+          : "Next write " + when(new Date(next).toISOString()) + ".")
+      : "No notebook yet. First write is on this cycle.";
     var html =
       '<section><p class="hero-label">Research</p>' +
+      '<p class="note">The 5-minute look is the trader — that is when we buy and sell. Research is the notebook. First write when the book goes live, then every 3 hours, not on every fill. Company files stay until the facts actually change.</p>' +
       '<p class="note">' +
-      (book.lastResearchAt
-        ? "Last research · " + ago(book.lastResearchAt)
-        : "Research runs with the book. Pulling the first notebook now.") +
+      esc(whenLine) +
       "</p>";
     if (book.market) {
       html += '<div class="section"><h2>Market</h2><p class="note">' + esc(book.market) + "</p></div>";
