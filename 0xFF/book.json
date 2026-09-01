@@ -1,1 +1,63 @@
-{"asOf": "2026-09-01T18:11:29Z", "createdAt": "2026-09-01T14:43:04.871Z", "startCash": 1000000, "equity": 997137.69, "cash": 561983.4674251287, "buyingPower": 561983.4674251287, "invested": 435154.2267005177, "deployPct": 0.43640334656297247, "dayUsd": -2862.310000000056, "dayPct": -0.002862310000000056, "trades": 34, "names": 19, "regime": "riskOff", "regimeLabel": "Risk-off. Shock absorber and the S&P core take over.", "last": {"side": "buy", "ticker": "XRP-USD", "at": "2026-09-01T15:27:18.782Z", "price": 1.3705, "reason": "We bought XRP USD as the 24/7 risk sleeve \u2014 crypto still prints when cash equities are shut, with a stop under the recent range."}, "holdings": [{"ticker": "SPY", "name": "State Street SPDR S&P 500 ETF T", "qty": 209, "avgCost": 764.422, "last": 761.54, "value": 159161.86, "pnl": -602.3380000000129, "dayPct": -0.5705631209933287, "crypto": false}, {"ticker": "XLP", "name": "State Street Consumer Staples S", "qty": 978, "avgCost": 85.8779, "last": 85.415, "value": 83535.87000000001, "pnl": -452.71619999999075, "dayPct": -1.2771613499768721, "crypto": false}, {"ticker": "AAPL", "name": "Apple Inc.", "qty": 86, "avgCost": 324.8223, "last": 324.925, "value": 27943.55, "pnl": 8.83220000000233, "dayPct": 4.848338173604399, "crypto": false}, {"ticker": "HOOD", "name": "Robinhood Markets, Inc.", "qty": 174, "avgCost": 106.3582, "last": 103.545, "value": 18016.83, "pnl": -489.4967999999991, "dayPct": -7.62333838879472, "crypto": false}, {"ticker": "XLE", "name": "State Street Energy Select Sect", "qty": 223, "avgCost": 64.3922, "last": 64.605, "value": 14406.915, "pnl": 47.45440000000032, "dayPct": 4.100870125684824, "crypto": false}, {"ticker": "BTC-USD", "name": "Bitcoin USD", "qty": 0.168445, "avgCost": 78363.8824, "last": 77139.75, "value": 12993.80518875, "pnl": -206.1989821180004, "dayPct": -0.8872381177045514, "crypto": true}, {"ticker": "ETH-USD", "name": "Ethereum USD", "qty": 5.381855, "avgCost": 2452.6857, "last": 2412.6, "value": 12984.263373, "pnl": -215.73542497350047, "dayPct": -1.2256114137110015, "crypto": true}, {"ticker": "SOL-USD", "name": "Solana USD", "qty": 128.955112, "avgCost": 102.3612, "last": 100.39, "value": 12945.803693680002, "pnl": -254.19631677439952, "dayPct": -3.588886648035567, "crypto": true}, {"ticker": "WMT", "name": "Walmart Inc.", "qty": 92, "avgCost": 106.3832, "last": 106.05, "value": 9756.6, "pnl": -30.654400000000464, "dayPct": 0.6357942683621197, "crypto": false}, {"ticker": "NFLX", "name": "Netflix, Inc.", "qty": 120, "avgCost": 81.3356, "last": 80.81, "value": 9697.2, "pnl": -63.07199999999966, "dayPct": -1.7268636750577666, "crypto": false}, {"ticker": "JPM", "name": "JP Morgan Chase & Co.", "qty": 27, "avgCost": 358.5292, "last": 355.26, "value": 9592.02, "pnl": -88.26840000000033, "dayPct": -0.4009083517900717, "crypto": false}, {"ticker": "UNH", "name": "UnitedHealth Group Incorporated", "qty": 24, "avgCost": 396.5582, "last": 395.755, "value": 9498.119999999999, "pnl": -19.276800000000094, "dayPct": -0.21054489523184639, "crypto": false}, {"ticker": "COST", "name": "Costco Wholesale Corporation", "qty": 10, "avgCost": 949.6196, "last": 941.861, "value": 9418.61, "pnl": -77.58600000000001, "dayPct": -1.8905011406131187, "crypto": false}, {"ticker": "LLY", "name": "Eli Lilly and Company", "qty": 8, "avgCost": 1171.4554, "last": 1163.28, "value": 9306.24, "pnl": -65.40320000000065, "dayPct": -5.704975438937803, "crypto": false}, {"ticker": "LTC-USD", "name": "Litecoin USD", "qty": 159.318311, "avgCost": 49.7118, "last": 49.5415, "value": 7892.8681044065, "pnl": -27.131908363299594, "dayPct": 2.0105471324983646, "crypto": true}, {"ticker": "AVAX-USD", "name": "Avalanche USD", "qty": 1083.527969, "avgCost": 7.321467601014276, "last": 7.2225, "value": 7825.7807561025, "pnl": -107.23416372380049, "dayPct": 0.5557172355492703, "crypto": true}, {"ticker": "ADA-USD", "name": "Cardano USD", "qty": 39664.422187000004, "avgCost": 0.19929160471084814, "last": 0.1962, "value": 7782.159633089401, "pnl": -122.62671448639823, "dayPct": -0.190066017611444, "crypto": true}, {"ticker": "XRP-USD", "name": "XRP USD", "qty": 5559.319678, "avgCost": 1.3705, "last": 1.3581, "value": 7550.1120546918, "pnl": -68.93556400719982, "dayPct": -1.0952370597487664, "crypto": true}, {"ticker": "LINK-USD", "name": "Chainlink USD", "qty": 430.970685, "avgCost": 11.4857, "last": 11.2435, "value": 4845.6188967974995, "pnl": -104.38109990700018, "dayPct": 0.24463291810230384, "crypto": true}], "curve": [{"t": 1788273784871, "equity": 1000000}, {"t": 1788277198319, "equity": 999663.44}, {"t": 1788282969000, "equity": 997870.46}, {"t": 1788286289486, "equity": 997137.69}], "fills": [{"side": "buy", "ticker": "XRP-USD", "name": "XRP USD", "at": "2026-09-01T15:27:18.782Z", "qty": 5559.319678, "price": 1.3705, "reason": "We bought XRP USD as the 24/7 risk sleeve."}], "brainRev": 7, "lastCloseDay": null, "closePenalties": 0, "lastResearchAt": 1788275079802, "market": null, "whale": null, "technique": null, "dossiers": [], "notes": []}
+{
+  "asOf": "2026-09-01T19:02:56Z",
+  "createdAt": "2026-09-01T14:43:04.871Z",
+  "startCash": 1000000,
+  "equity": 996647.47,
+  "cash": 561983.4674251287,
+  "buyingPower": 561983.4674251287,
+  "invested": 434664.00132090674,
+  "deployPct": 0.4361261277950101,
+  "dayUsd": -3352.53125396464,
+  "dayPct": -0.0033525312539646403,
+  "trades": 34,
+  "names": 19,
+  "regime": "riskOff",
+  "regimeLabel": "Risk-off. Shock absorber and the S&P core take over.",
+  "last": {
+    "side": "buy",
+    "ticker": "XRP-USD",
+    "at": "2026-09-01T15:27:18.782Z",
+    "price": 1.3705,
+    "reason": "We bought XRP USD as the 24/7 risk sleeve \u2014 crypto still prints when cash equities are shut, with a stop under the recent range."
+  },
+  "holdings": [
+    {"ticker": "SPY", "name": "State Street SPDR S&P 500 ETF T", "qty": 209, "avgCost": 764.422, "last": 760.671, "value": 158980.239, "pnl": -783.9589999999951, "dayPct": -0.832, "crypto": false},
+    {"ticker": "XLP", "name": "State Street Consumer Staples S", "qty": 978, "avgCost": 85.8779, "last": 85.26, "value": 83384.28, "pnl": -604.3061999999918, "dayPct": 0.329, "crypto": false},
+    {"ticker": "AAPL", "name": "Apple Inc.", "qty": 86, "avgCost": 324.8223, "last": 325.39, "value": 27983.539999999997, "pnl": 48.82220000000018, "dayPct": 2.695, "crypto": false},
+    {"ticker": "HOOD", "name": "Robinhood Markets, Inc.", "qty": 174, "avgCost": 106.3582, "last": 103.26, "value": 17967.24, "pnl": -539.0867999999984, "dayPct": -1.479, "crypto": false},
+    {"ticker": "XLE", "name": "State Street Energy Select Sect", "qty": 223, "avgCost": 64.3922, "last": 64.665, "value": 14420.295000000002, "pnl": 60.83440000000083, "dayPct": 1.102, "crypto": false},
+    {"ticker": "BTC-USD", "name": "Bitcoin USD", "qty": 0.168445, "avgCost": 78363.8824, "last": 77117.72, "value": 12990.0943454, "pnl": -209.9098254680002, "dayPct": -2.251, "crypto": true},
+    {"ticker": "ETH-USD", "name": "Ethereum USD", "qty": 5.381855, "avgCost": 2452.6857, "last": 2413.24, "value": 12987.707760199999, "pnl": -212.29103777350116, "dayPct": -2.766, "crypto": true},
+    {"ticker": "SOL-USD", "name": "Solana USD", "qty": 128.955112, "avgCost": 102.3612, "last": 99.64, "value": 12849.087359680001, "pnl": -350.91265077439954, "dayPct": -3.8224, "crypto": true},
+    {"ticker": "WMT", "name": "Walmart Inc.", "qty": 92, "avgCost": 106.3832, "last": 105.96, "value": 9748.32, "pnl": -38.93440000000078, "dayPct": 1.039, "crypto": false},
+    {"ticker": "NFLX", "name": "Netflix, Inc.", "qty": 120, "avgCost": 81.3356, "last": 80.99, "value": 9718.8, "pnl": -41.47200000000055, "dayPct": -0.074, "crypto": false},
+    {"ticker": "JPM", "name": "JP Morgan Chase & Co.", "qty": 27, "avgCost": 358.5292, "last": 355.47, "value": 9597.69, "pnl": -82.59839999999934, "dayPct": -0.154, "crypto": false},
+    {"ticker": "UNH", "name": "UnitedHealth Group Incorporated", "qty": 24, "avgCost": 396.5582, "last": 395.94, "value": 9502.56, "pnl": -14.83680000000004, "dayPct": 1.677, "crypto": false},
+    {"ticker": "COST", "name": "Costco Wholesale Corporation", "qty": 10, "avgCost": 949.6196, "last": 938.04, "value": 9380.4, "pnl": -115.79600000000028, "dayPct": -0.62, "crypto": false},
+    {"ticker": "LLY", "name": "Eli Lilly and Company", "qty": 8, "avgCost": 1171.4554, "last": 1159.337, "value": 9274.696, "pnl": -96.94720000000052, "dayPct": 0.225, "crypto": false},
+    {"ticker": "LTC-USD", "name": "Litecoin USD", "qty": 159.318311, "avgCost": 49.7118, "last": 49.398, "value": 7870.005926778001, "pnl": -49.99408599179895, "dayPct": 0.90697, "crypto": true},
+    {"ticker": "AVAX-USD", "name": "Avalanche USD", "qty": 1083.527969, "avgCost": 7.321467601014276, "last": 7.221, "value": 7824.155464149, "pnl": -108.85945567730056, "dayPct": 0.1664598, "crypto": true},
+    {"ticker": "ADA-USD", "name": "Cardano USD", "qty": 39664.422187000004, "avgCost": 0.19929160471084814, "last": 0.19682, "value": 7806.751574845341, "pnl": -98.03477273045895, "dayPct": -1.1252825, "crypto": true},
+    {"ticker": "XRP-USD", "name": "XRP USD", "qty": 5559.319678, "avgCost": 1.3705, "last": 1.3573, "value": 7545.664598949399, "pnl": -73.38301974960056, "dayPct": -2.1836195, "crypto": true},
+    {"ticker": "LINK-USD", "name": "Chainlink USD", "qty": 430.970685, "avgCost": 11.4857, "last": 11.213, "value": 4832.474290905, "pnl": -117.52570579950017, "dayPct": -1.640345, "crypto": true}
+  ],
+  "curve": [
+    {"t": 1788273784871, "equity": 1000000},
+    {"t": 1788277198319, "equity": 999663.44},
+    {"t": 1788282969000, "equity": 997870.46},
+    {"t": 1788286289486, "equity": 997137.69},
+    {"t": 1788289376384, "equity": 996647.47}
+  ],
+  "fills": [
+    {"side": "buy", "ticker": "XRP-USD", "name": "XRP USD", "at": "2026-09-01T15:27:18.782Z", "qty": 5559.319678, "price": 1.3705, "reason": "We bought XRP USD as the 24/7 risk sleeve."}
+  ],
+  "brainRev": 7,
+  "lastCloseDay": null,
+  "closePenalties": 0,
+  "lastResearchAt": 1788275079802,
+  "market": null,
+  "whale": null,
+  "technique": null,
+  "dossiers": [],
+  "notes": []
+}
