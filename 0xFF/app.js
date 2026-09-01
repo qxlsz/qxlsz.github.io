@@ -448,6 +448,7 @@
       ) +
       acctRow("Last fill time", book.last ? when(book.last.at) : "—") +
       acctRow("All-time", signed(yld, 0), yld) +
+      (book.closePenalties > 0 ? acctRow("Close penalties", money(book.closePenalties), -1) : "") +
       acctRow("Tape", book.regimeLabel || book.regime || "—") +
       "</dl>" +
       '<p class="note">Play money only. Not advice. Not a broker. Source: <a href="https://github.com/qxlsz/0xFF">github.com/qxlsz/0xFF</a></p></section>'
