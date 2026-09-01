@@ -5,6 +5,7 @@
   var VIEWS = [
     { id: "investing", label: "Investing" },
     { id: "activity", label: "Activity" },
+    { id: "research", label: "Research" },
     { id: "account", label: "Account" },
   ];
   var RANGES = [
@@ -428,6 +429,53 @@
       "</dd></div>"
     );
   }
+  function research(book) {
+    var dossiers = book.dossiers || [];
+    var tech = book.technique;
+    var html =
+      '<section><p class="hero-label">Research</p>' +
+      '<p class="note">' +
+      (book.lastResearchAt
+        ? "Last research · " + ago(book.lastResearchAt)
+        : "Research runs with the book. Pulling the first notebook now.") +
+      "</p>";
+    if (book.market) {
+      html += '<div class="section"><h2>Market</h2><p class="note">' + esc(book.market) + "</p></div>";
+    }
+    if (book.whale) {
+      html +=
+        '<div class="section"><h2>Large traders</h2><p class="note">' + esc(book.whale) + "</p></div>";
+    }
+    if (tech && tech.body) {
+      html +=
+        '<div class="section"><h2>' +
+        esc(tech.title || "Method") +
+        "</h2><p class=\"note\">" +
+        esc(tech.body) +
+        "</p></div>";
+    }
+    html += '<div class="section"><h2>Companies</h2>';
+    if (!dossiers.length) {
+      html += '<p class="empty">No company files yet.</p>';
+    } else {
+      html += dossiers
+        .map(function (d) {
+          return (
+            '<article class="fill"><span class="side">' +
+            esc(shown(d.ticker)) +
+            '</span><div><div class="why">' +
+            esc(d.thesis || "") +
+            '</div><div class="when">' +
+            esc(d.stance || "") +
+            (d.name ? " · " + esc(d.name) : "") +
+            "</div></div></article>"
+          );
+        })
+        .join("");
+    }
+    html += "</div></section>";
+    return html;
+  }
   function account(book) {
     var yld = book.equity - (book.startCash || 1000000);
     return (
@@ -552,6 +600,7 @@
       return;
     }
     if (state.view === "activity") root.innerHTML = activity(book);
+    else if (state.view === "research") root.innerHTML = research(book);
     else if (state.view === "account") root.innerHTML = account(book);
     else root.innerHTML = investing(book);
     bind();
