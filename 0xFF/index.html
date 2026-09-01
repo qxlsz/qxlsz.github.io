@@ -264,6 +264,16 @@
             timeZoneName: "short",
           }).format(new Date(iso));
         }
+        function ago(iso) {
+          if (!iso) return "";
+          var sec = Math.round((Date.now() - new Date(iso).getTime()) / 1000);
+          if (sec < 45) return "just now";
+          var min = Math.round(sec / 60);
+          if (min < 60) return min + "m ago";
+          var hr = Math.round(min / 60);
+          if (hr < 24) return hr + "h ago";
+          return Math.round(hr / 24) + "d ago";
+        }
         function nyClock() {
           var parts = new Intl.DateTimeFormat("en-US", {
             timeZone: "America/New_York",
@@ -409,6 +419,17 @@
             signed(win.usd) + " (" + pct(win.pct) + ") " +
             (RANGES.find(function (r) { return r.id === state.range; }).label === "ALL" ? "All time" : RANGES.find(function (r) { return r.id === state.range; }).label) +
             "</p>" +
+            (book.last
+              ? '<button class="power" data-view="activity"><span><div class="lbl">Last trade · ' +
+                ago(book.last.at) +
+                "</div><div class=\"val\">" +
+                (book.last.side === "buy" ? "Bought" : "Sold") +
+                " " +
+                shown(book.last.ticker) +
+                "</div><div class=\"lbl\">" +
+                when(book.last.at) +
+                "</div></span><span class=\"chev\">›</span></button>"
+              : '<p class="empty">No fills yet.</p>') +
             '<div class="chart-wrap" id="chart">' + chartSvg(pts, win.up) + "</div>" +
             '<div class="ranges">' + rangeBtns + "</div>" +
             '<button class="power" data-view="account"><span><div class="lbl">Buying power</div><div class="val">' +
@@ -416,6 +437,31 @@
             "</div></span><span class="chev">›</span></button>" +
             "</section>" +
             '<section class="hold-col">' +
+            (function () {
+              var fills = (book.fills || []).slice(0, 5);
+              if (!fills.length) return "";
+              return (
+                '<div class="section"><h2>Latest trades</h2>' +
+                fills
+                  .map(function (f) {
+                    return (
+                      '<button class="row" data-view="activity"><span class="meta"><span class="name">' +
+                      (f.side === "buy" ? "Bought" : "Sold") +
+                      " " +
+                      shown(f.ticker) +
+                      '</span><span class="sub">' +
+                      ago(f.at) +
+                      " · " +
+                      when(f.at) +
+                      '</span></span><span class="px"><span class="n">' +
+                      money((f.qty || 0) * (f.price || 0), 0) +
+                      "</span></span></button>"
+                    );
+                  })
+                  .join("") +
+                "</div>"
+              );
+            })() +
             (stocks.length
               ? '<div class="section"><h2>Stocks</h2>' + stocks.map(holdingRow).join("") + "</div>"
               : "") +
@@ -442,6 +488,8 @@
                   '</span><div><div class="why">' +
                   (f.reason || "") +
                   '</div><div class="when">' +
+                  ago(f.at) +
+                  " · " +
                   when(f.at) +
                   " · " +
                   qty(f.qty) +
@@ -467,8 +515,9 @@
             row("Invested", money(book.invested)) +
             row("Positions", String(book.names || 0)) +
             row("Trades", String(book.trades || 0)) +
+            row("Last trade", book.last ? ((book.last.side === "buy" ? "Bought " : "Sold ") + shown(book.last.ticker) + " · " + ago(book.last.at)) : "—") +
+            row("Last fill time", book.last ? when(book.last.at) : "—") +
             row("All-time", signed(yld, 0), yld) +
-            row("Last fill", book.last ? (book.last.side + " " + shown(book.last.ticker)).toUpperCase() : "—") +
             row("Tape", book.regimeLabel || book.regime || "—") +
             "</dl>" +
             "<p class='note'>Play money only. Not advice. Not a broker. Source: <a href='https://github.com/qxlsz/0xFF'>github.com/qxlsz/0xFF</a></p>" +
