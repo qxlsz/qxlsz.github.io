@@ -75,7 +75,6 @@
   function when(iso) {
     if (!iso) return "";
     return new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/New_York",
       month: "short",
       day: "numeric",
       hour: "numeric",
@@ -123,12 +122,13 @@
     var pulse = document.getElementById("pulse");
     if (sessionEl) {
       sessionEl.textContent =
-        String(hour).padStart(2, "0") +
-        ":" +
-        String(minute).padStart(2, "0") +
-        ":" +
-        String(get("second")).padStart(2, "0") +
-        " ET · " +
+        new Intl.DateTimeFormat("en-US", {
+          hour: "numeric",
+          minute: "2-digit",
+          second: "2-digit",
+          timeZoneName: "short",
+        }).format(new Date()) +
+        " · " +
         labels[session];
     }
     if (pulse) pulse.className = session === "closed" ? "live off" : "live";
