@@ -175,24 +175,45 @@
       })
       .join(" ");
   }
-  function chartSvg(pts, up) {
+  function compactUsd(n) {
+    if (!Number.isFinite(n)) return "—";
+    if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
+    if (Math.abs(n) >= 1e3) return "$" + Math.round(n).toLocaleString("en-US");
+    return money(n, 0);
+  }
+  function clockTick(t) {
+    return new Intl.DateTimeFormat("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+    }).format(new Date(t));
+  }
+  function chartSvg(pts, up, fills) {
     if (pts.length < 2) return "";
-    var w = 640;
-    var h = 220;
-    var pad = 8;
+    var w = 720;
+    var h = 340;
+    var padL = 56;
+    var padR = 12;
+    var padT = 16;
+    var padB = 34;
     var ys = pts.map(function (p) {
       return p.equity;
     });
     var min = Math.min.apply(null, ys);
     var max = Math.max.apply(null, ys);
-    var span = Math.max(max - min, Math.abs(max) * 0.004, 40);
-    min -= span * 0.12;
+    var span = Math.max(max - min, Math.abs(max) * 0.004, 80);
+    min -= span * 0.1;
     max += span * 0.08;
     function X(i) {
-      return pad + (i / (pts.length - 1)) * (w - pad * 2);
+      return padL + (i / (pts.length - 1)) * (w - padL - padR);
+    }
+    function XT(t) {
+      var a = pts[0].t;
+      var b = pts[pts.length - 1].t;
+      var u = b === a ? 0 : (t - a) / (b - a);
+      return padL + Math.min(1, Math.max(0, u)) * (w - padL - padR);
     }
     function Y(v) {
-      return pad + (1 - (v - min) / (max - min)) * (h - pad * 2);
+      return padT + (1 - (v - min) / (max - min)) * (h - padT - padB);
     }
     var d = pts
       .map(function (p, i) {
@@ -204,14 +225,72 @@
       " L" +
       X(pts.length - 1).toFixed(1) +
       " " +
-      (h - 2) +
+      (h - padB) +
       " L" +
       X(0).toFixed(1) +
       " " +
-      (h - 2) +
+      (h - padB) +
       " Z";
     var color = up ? "#6eab8a" : "#d07070";
     var gid = up ? "gUp" : "gDn";
+    var grid = "";
+    var ticks = 4;
+    for (var i = 0; i <= ticks; i++) {
+      var v = min + ((max - min) * i) / ticks;
+      var y = Y(v);
+      grid +=
+        "<line x1='" +
+        padL +
+        "' y1='" +
+        y.toFixed(1) +
+        "' x2='" +
+        (w - padR) +
+        "' y2='" +
+        y.toFixed(1) +
+        "' stroke='#2a2a30' stroke-width='1'/>";
+      grid +=
+        "<text x='" +
+        (padL - 6) +
+        "' y='" +
+        (y + 4).toFixed(1) +
+        "' text-anchor='end' fill='#9a9891' font-size='11' font-family='IBM Plex Mono, ui-monospace, monospace'>" +
+        compactUsd(v) +
+        "</text>";
+    }
+    for (var j = 0; j < 4; j++) {
+      var idx = Math.round((j / 3) * (pts.length - 1));
+      var x = X(idx);
+      grid +=
+        "<text x='" +
+        x.toFixed(1) +
+        "' y='" +
+        (h - 10) +
+        "' text-anchor='middle' fill='#9a9891' font-size='11' font-family='IBM Plex Mono, ui-monospace, monospace'>" +
+        clockTick(pts[idx].t) +
+        "</text>";
+    }
+    var dots = "";
+    (fills || []).forEach(function (f) {
+      var t = new Date(f.at).getTime();
+      if (!Number.isFinite(t) || t < pts[0].t || t > pts[pts.length - 1].t) return;
+      var nearest = pts[0];
+      var best = Infinity;
+      pts.forEach(function (p) {
+        var dist = Math.abs(p.t - t);
+        if (dist < best) {
+          best = dist;
+          nearest = p;
+        }
+      });
+      dots +=
+        "<circle cx='" +
+        XT(t).toFixed(1) +
+        "' cy='" +
+        Y(nearest.equity).toFixed(1) +
+        "' r='4.2' fill='" +
+        (f.side === "buy" ? "#6eab8a" : "#d07070") +
+        "' stroke='#09090b' stroke-width='1.5'/>";
+    });
     return (
       '<svg viewBox="0 0 ' +
       w +
@@ -223,10 +302,11 @@
       "' x1='0' y1='0' x2='0' y2='1'>" +
       "<stop offset='0' stop-color='" +
       color +
-      "' stop-opacity='0.28'/>" +
+      "' stop-opacity='0.32'/>" +
       "<stop offset='1' stop-color='" +
       color +
       "' stop-opacity='0'/></linearGradient></defs>" +
+      grid +
       "<path d='" +
       fill +
       "' fill='url(#" +
@@ -236,7 +316,9 @@
       d +
       "' fill='none' stroke='" +
       color +
-      "' stroke-width='2.2' vector-effect='non-scaling-stroke'></path></svg>"
+      "' stroke-width='2.8' vector-effect='non-scaling-stroke'></path>" +
+      dots +
+      "</svg>"
     );
   }
   function holdingRow(h) {
@@ -367,8 +449,9 @@
       "</p>" +
       lastCard +
       '<div class="chart-wrap" id="chart">' +
-      chartSvg(pts, win.up) +
+      chartSvg(pts, win.up, book.fills) +
       "</div>" +
+      '<p class="chart-hint" id="chart-hint">Scrub the line for time and value. Dots are buys and sells.</p>' +
       '<div class="ranges">' +
       rangeBtns +
       "</div>" +
@@ -470,6 +553,17 @@
     if (!dossiers.length) {
       html += '<p class="empty">No company files yet.</p>';
     } else {
+      var newest = dossiers
+        .map(function (d) {
+          return d.updatedAt ? new Date(d.updatedAt).getTime() : 0;
+        })
+        .sort(function (a, b) {
+          return b - a;
+        })[0];
+      html +=
+        '<p class="note">Files last written ' +
+        esc(newest ? when(new Date(newest).toISOString()) : "—") +
+        ". Each company has its own stamp.</p>";
       html += dossiers
         .map(function (d) {
           return (
@@ -480,6 +574,9 @@
             '</div><div class="when">' +
             esc(d.stance || "") +
             (d.name ? " · " + esc(d.name) : "") +
+            (d.updatedAt
+              ? " · updated " + when(d.updatedAt) + " · " + ago(d.updatedAt)
+              : "") +
             "</div></div></article>"
           );
         })
@@ -591,11 +688,15 @@
         state.hover = p.equity;
         var hero = document.getElementById("hero-eq");
         if (hero) hero.textContent = money(p.equity);
+        var hint = document.getElementById("chart-hint");
+        if (hint) hint.textContent = when(new Date(p.t).toISOString()) + " · " + money(p.equity);
       };
       chart.onmouseleave = function () {
         state.hover = null;
         var hero = document.getElementById("hero-eq");
         if (hero) hero.textContent = money(state.book.equity);
+        var hint = document.getElementById("chart-hint");
+        if (hint) hint.textContent = "Scrub the line for time and value. Dots are buys and sells.";
       };
     }
   }
