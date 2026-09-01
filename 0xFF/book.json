@@ -1,24 +1,24 @@
 {
-  "asOf": "2026-09-01T14:56:50.596Z",
+  "asOf": "2026-09-01T15:04:49.350Z",
   "createdAt": "2026-09-01T14:43:04.871Z",
   "startCash": 1000000,
-  "equity": 999787.19,
-  "cash": 721393.4918112298,
-  "buyingPower": 721393.4918112298,
-  "invested": 278393.6981887701,
-  "deployPct": 0.2784529557622859,
-  "dayUsd": -212.81000000005588,
-  "dayPct": -0.021281000000005587,
-  "trades": 15,
-  "names": 12,
+  "equity": 999231.19,
+  "cash": 650347.1088523078,
+  "buyingPower": 650347.1088523078,
+  "invested": 348884.08114769217,
+  "deployPct": 0.34915251309128187,
+  "dayUsd": -768.8100000000559,
+  "dayPct": -0.0768810000000056,
+  "trades": 26,
+  "names": 17,
   "regime": "riskOff",
   "regimeLabel": "Risk-off. Shock absorber and the S&P core take over.",
   "last": {
     "side": "buy",
-    "ticker": "LINK-USD",
-    "at": "2026-09-01T14:50:44.748Z",
-    "price": 11.4857,
-    "reason": "We bought Chainlink USD to keep a crypto stake in the portfolio."
+    "ticker": "AVAX-USD",
+    "at": "2026-09-01T15:03:18.087Z",
+    "price": 7.3127,
+    "reason": "We bought Avalanche USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
   },
   "holdings": [
     {
@@ -26,10 +26,10 @@
       "name": "State Street SPDR S&P 500 ETF T",
       "qty": 209,
       "avgCost": 764.422,
-      "last": 763.57,
-      "value": 159586.13,
-      "pnl": -178.06799999999487,
-      "dayPct": -0.454,
+      "last": 763.11,
+      "value": 159489.99,
+      "pnl": -274.20800000000247,
+      "dayPct": -0.514,
       "sparkline": [
         761.9299926757812,
         761.7698974609375,
@@ -49,7 +49,74 @@
         763.9199829101562,
         763.5938720703125,
         763.5399780273438,
-        763.5700073242188
+        763.1599731445312,
+        763.1099853515625
+      ],
+      "crypto": false
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "qty": 86,
+      "avgCost": 324.8223,
+      "last": 322.975,
+      "value": 27775.850000000002,
+      "pnl": -158.8677999999967,
+      "dayPct": 1.933,
+      "sparkline": [
+        315.3399963378906,
+        318.1650085449219,
+        319.1499938964844,
+        320.6700134277344,
+        321.7449951171875,
+        322.69500732421875,
+        321.80999755859375,
+        323,
+        323.4049987792969,
+        323.5801086425781,
+        325.1449890136719,
+        325.3445129394531,
+        325.635009765625,
+        324.70001220703125,
+        324.7349853515625,
+        325.19000244140625,
+        324.7998962402344,
+        324.3800048828125,
+        323.47540283203125,
+        322.97479248046875
+      ],
+      "crypto": false
+    },
+    {
+      "ticker": "XLE",
+      "name": "State Street Energy Select Sect",
+      "qty": 288,
+      "avgCost": 64.41025555555557,
+      "last": 64.515,
+      "value": 18580.32,
+      "pnl": 30.16639999999734,
+      "dayPct": 0.868,
+      "sparkline": [
+        64.58999633789062,
+        64.61000061035156,
+        64.5199966430664,
+        64.47000122070312,
+        64.48999786376953,
+        64.42500305175781,
+        64.69000244140625,
+        64.30000305175781,
+        64.32499694824219,
+        64.21499633789062,
+        64.19999694824219,
+        64.23500061035156,
+        64.2249984741211,
+        64.32499694824219,
+        64.31950378417969,
+        64.31999969482422,
+        64.375,
+        64.41999816894531,
+        64.49009704589844,
+        64.51499938964844
       ],
       "crypto": false
     },
@@ -58,10 +125,10 @@
       "name": "Robinhood Markets, Inc.",
       "qty": 174,
       "avgCost": 106.3582,
-      "last": 106.44,
-      "value": 18520.56,
-      "pnl": 14.23320000000021,
-      "dayPct": 1.555,
+      "last": 105.98,
+      "value": 18440.52,
+      "pnl": -65.8067999999987,
+      "dayPct": 1.116,
       "sparkline": [
         105.91000366210938,
         104.8499984741211,
@@ -80,8 +147,9 @@
         106.41999816894531,
         106.3550033569336,
         106.4999008178711,
-        106.45800018310547,
-        106.44000244140625
+        106.1050033569336,
+        106.04499816894531,
+        105.9800033569336
       ],
       "crypto": false
     },
@@ -90,35 +158,35 @@
       "name": "Ethereum USD",
       "qty": 5.381855,
       "avgCost": 2452.6857,
-      "last": 2449.49,
-      "value": 13182.800003949998,
-      "pnl": -17.198794023501158,
-      "dayPct": -0.6949,
+      "last": 2438.17,
+      "value": 13121.87740535,
+      "pnl": -78.12139262349959,
+      "dayPct": -1.1819,
       "sparkline": [
         2467.179931640625,
         2471.5400390625,
         2467.030029296875,
-        2462.2900390625,
+        2459.52001953125,
         2459.64990234375,
         2466.510009765625,
         2471.610107421875,
         2472.14990234375,
         2471.510009765625,
-        2483.489990234375,
-        2475.8798828125,
-        2473.39990234375,
+        2484.070068359375,
+        2476.97998046875,
+        2474.179931640625,
         2471.7900390625,
         2451.280029296875,
         2443.81005859375,
-        2452.050048828125,
-        2457.22998046875,
-        2453.489990234375,
-        2459.10009765625,
-        2454.3798828125,
+        2451.889892578125,
+        2460.18994140625,
+        2454.010009765625,
+        2461.510009765625,
+        2448.300048828125,
         2436.8798828125,
-        2442.389892578125,
-        2449.199951171875,
-        2449.489990234375
+        2444.159912109375,
+        2450.409912109375,
+        2438.169921875
       ],
       "crypto": true
     },
@@ -127,35 +195,35 @@
       "name": "Bitcoin USD",
       "qty": 0.168445,
       "avgCost": 78363.8824,
-      "last": 78179.98,
-      "value": 13169.0267311,
-      "pnl": -30.977439768001066,
-      "dayPct": -0.484,
+      "last": 77812.86,
+      "value": 13107.1872027,
+      "pnl": -92.81696816800029,
+      "dayPct": -0.953,
       "sparkline": [
         78626.421875,
         78680.078125,
         78561.03125,
-        78377.171875,
+        78302.96875,
         78315.921875,
         78482.1015625,
         78653.9296875,
         78701.4921875,
         78812.4765625,
-        79160.53125,
-        78906.0078125,
-        78698.0625,
+        79136.0625,
+        78898.359375,
+        78748.5703125,
         78622.7578125,
         77981.796875,
         77800,
-        77935.5390625,
-        77989.65625,
-        77941,
-        78072.578125,
-        77957.46875,
+        77907.9609375,
+        78074.328125,
+        77949.421875,
+        78126.2421875,
+        77846.3515625,
         77701.65625,
-        77895.65625,
-        78250.3984375,
-        78179.9765625
+        78068.09375,
+        78233.7890625,
+        77812.859375
       ],
       "crypto": true
     },
@@ -164,35 +232,35 @@
       "name": "Solana USD",
       "qty": 128.955112,
       "avgCost": 102.3612,
-      "last": 101.99,
-      "value": 13152.131872880002,
-      "pnl": -47.86813757440023,
-      "dayPct": -1.4399,
+      "last": 101.37,
+      "value": 13072.179703440002,
+      "pnl": -127.82030701439899,
+      "dayPct": -1.4486,
       "sparkline": [
         103.05999755859375,
         103.25,
         103.05999755859375,
-        103.2300033569336,
+        103.12999725341797,
         103.06999969482422,
         103.5199966430664,
         103.62000274658203,
         103.75,
         103.80000305175781,
-        104.25,
-        103.98999786376953,
-        103.30999755859375,
+        104.29000091552734,
+        103.9000015258789,
+        103.4000015258789,
         103.06999969482422,
         102.2300033569336,
         101.91999816894531,
-        102.04000091552734,
-        102.30000305175781,
-        102.27999877929688,
-        102.26000213623047,
-        102.27999877929688,
-        101.77999877929688,
-        101.83999633789062,
+        102.0199966430664,
+        102.5,
         102.25,
-        101.98999786376953
+        102.37000274658203,
+        102.06999969482422,
+        101.77999877929688,
+        102.19000244140625,
+        102.18000030517578,
+        101.37000274658203
       ],
       "crypto": true
     },
@@ -201,10 +269,10 @@
       "name": "Walmart Inc.",
       "qty": 92,
       "avgCost": 106.3832,
-      "last": 106.49,
-      "value": 9797.08,
-      "pnl": 9.825599999999326,
-      "dayPct": 1.545,
+      "last": 106.585,
+      "value": 9805.82,
+      "pnl": 18.565599999999222,
+      "dayPct": 1.635,
       "sparkline": [
         105.58000183105469,
         105.66000366210938,
@@ -223,8 +291,42 @@
         106.3479995727539,
         106.41500091552734,
         106.51000213623047,
-        106.51000213623047,
-        106.48999786376953
+        106.5250015258789,
+        106.6050033569336,
+        106.58499908447266
+      ],
+      "crypto": false
+    },
+    {
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "qty": 120,
+      "avgCost": 81.3356,
+      "last": 80.948,
+      "value": 9713.759999999998,
+      "pnl": -46.51200000000074,
+      "dayPct": -0.126,
+      "sparkline": [
+        80.19000244140625,
+        80.62000274658203,
+        80.78810119628906,
+        80.91000366210938,
+        81.04000091552734,
+        80.9749984741211,
+        80.96499633789062,
+        81.14990234375,
+        81.37999725341797,
+        81.66000366210938,
+        81.8499984741211,
+        81.9800033569336,
+        81.79000091552734,
+        81.73500061035156,
+        81.70500183105469,
+        81.61000061035156,
+        81.40499877929688,
+        81.06060028076172,
+        80.9800033569336,
+        80.94770050048828
       ],
       "crypto": false
     },
@@ -233,10 +335,10 @@
       "name": "JP Morgan Chase & Co.",
       "qty": 27,
       "avgCost": 358.5292,
-      "last": 357.995,
-      "value": 9665.865,
-      "pnl": -14.423399999999958,
-      "dayPct": 0.555,
+      "last": 357.97,
+      "value": 9665.19,
+      "pnl": -15.098399999999344,
+      "dayPct": 0.548,
       "sparkline": [
         355.44500732421875,
         357.9700012207031,
@@ -255,8 +357,9 @@
         358.1986999511719,
         357.6600036621094,
         357.4599914550781,
-        357.7200012207031,
-        357.9949951171875
+        357.614990234375,
+        358.0150146484375,
+        357.9700012207031
       ],
       "crypto": false
     },
@@ -265,10 +368,10 @@
       "name": "Costco Wholesale Corporation",
       "qty": 10,
       "avgCost": 949.6196,
-      "last": 948.85,
-      "value": 9488.5,
-      "pnl": -7.695999999999685,
-      "dayPct": 0.525,
+      "last": 947.685,
+      "value": 9476.849999999999,
+      "pnl": -19.34600000000046,
+      "dayPct": 0.402,
       "sparkline": [
         946.0050048828125,
         944.8900146484375,
@@ -287,8 +390,9 @@
         949.1599731445312,
         949.280029296875,
         949.530029296875,
-        949.2139892578125,
-        948.8499755859375
+        947.25,
+        947.3099975585938,
+        947.6845703125
       ],
       "crypto": false
     },
@@ -297,10 +401,10 @@
       "name": "UnitedHealth Group Incorporated",
       "qty": 24,
       "avgCost": 396.5582,
-      "last": 394.63,
-      "value": 9471.119999999999,
-      "pnl": -46.276800000000094,
-      "dayPct": 1.34,
+      "last": 394.79,
+      "value": 9474.960000000001,
+      "pnl": -42.436799999999494,
+      "dayPct": 1.382,
       "sparkline": [
         396.3599853515625,
         394.510009765625,
@@ -319,8 +423,9 @@
         396.2900085449219,
         395.3900146484375,
         394.7449951171875,
-        394.6549987792969,
-        394.6300048828125
+        394.25,
+        394.7349853515625,
+        394.7900085449219
       ],
       "crypto": false
     },
@@ -329,10 +434,10 @@
       "name": "Eli Lilly and Company",
       "qty": 8,
       "avgCost": 1171.4554,
-      "last": 1171.605,
-      "value": 9372.84,
-      "pnl": 1.1967999999997119,
-      "dayPct": 1.286,
+      "last": 1172.6,
+      "value": 9380.8,
+      "pnl": 9.156799999998839,
+      "dayPct": 1.372,
       "sparkline": [
         1183.150146484375,
         1177.72998046875,
@@ -351,45 +456,120 @@
         1170.6650390625,
         1172.219970703125,
         1170.6199951171875,
-        1170.4302978515625,
-        1171.60498046875
+        1173.6300048828125,
+        1172.64501953125,
+        1172.5999755859375
       ],
       "crypto": false
+    },
+    {
+      "ticker": "AVAX-USD",
+      "name": "Avalanche USD",
+      "qty": 1083.527969,
+      "avgCost": 7.321467601014276,
+      "last": 7.296,
+      "value": 7905.420061824,
+      "pnl": -27.594858002300366,
+      "dayPct": 1.305191,
+      "sparkline": [
+        7.2270002365112305,
+        7.258999824523926,
+        7.267000198364258,
+        7.250999927520752,
+        7.248000144958496,
+        7.267000198364258,
+        7.276000022888184,
+        7.269000053405762,
+        7.275000095367432,
+        7.322999954223633,
+        7.301000118255615,
+        7.328999996185303,
+        7.315999984741211,
+        7.244999885559082,
+        7.208000183105469,
+        7.228000164031982,
+        7.276000022888184,
+        7.25600004196167,
+        7.293000221252441,
+        7.264999866485596,
+        7.250999927520752,
+        7.289999961853027,
+        7.308000087738037,
+        7.296000003814697
+      ],
+      "crypto": true
     },
     {
       "ticker": "LTC-USD",
       "name": "Litecoin USD",
       "qty": 159.318311,
       "avgCost": 49.7118,
-      "last": 49.608,
-      "value": 7903.462772087999,
-      "pnl": -16.537240681799947,
-      "dayPct": 2.44507,
+      "last": 49.386,
+      "value": 7868.094107046,
+      "pnl": -51.90590572379902,
+      "dayPct": 1.78064,
       "sparkline": [
         48.58300018310547,
         48.736000061035156,
         48.84400177001953,
-        48.694000244140625,
+        48.608001708984375,
         48.659000396728516,
         48.83000183105469,
         48.96200180053711,
         48.81999969482422,
         48.85300064086914,
-        49.0989990234375,
-        49.10100173950195,
-        48.9370002746582,
+        49.141998291015625,
+        49.10900115966797,
+        48.91400146484375,
         48.90599822998047,
         48.44900131225586,
         48.402000427246094,
-        48.51499938964844,
-        48.83700180053711,
-        48.93199920654297,
-        49.05699920654297,
-        49.17399978637695,
+        48.52399826049805,
+        48.87300109863281,
+        48.8120002746582,
+        49.10599899291992,
+        49.106998443603516,
         49.21200180053711,
-        49.33100128173828,
-        49.641998291015625,
-        49.608001708984375
+        49.43000030517578,
+        49.54899978637695,
+        49.38600158691406
+      ],
+      "crypto": true
+    },
+    {
+      "ticker": "ADA-USD",
+      "name": "Cardano USD",
+      "qty": 34887.270507,
+      "avgCost": 0.1994,
+      "last": 0.19828,
+      "value": 6917.44799612796,
+      "pnl": -39.07374296783938,
+      "dayPct": 1.27695,
+      "sparkline": [
+        0.19776999950408936,
+        0.1994200050830841,
+        0.19923999905586243,
+        0.19901999831199646,
+        0.19913999736309052,
+        0.20082999765872955,
+        0.20090000331401825,
+        0.2011999934911728,
+        0.2011999934911728,
+        0.20271000266075134,
+        0.20166000723838806,
+        0.2011599987745285,
+        0.20040999352931976,
+        0.1976899951696396,
+        0.1963600069284439,
+        0.1970899999141693,
+        0.19939999282360077,
+        0.19862000644207,
+        0.2001200020313263,
+        0.19884000718593597,
+        0.19767999649047852,
+        0.19890999794006348,
+        0.19943000376224518,
+        0.19828000664710999
       ],
       "crypto": true
     },
@@ -398,35 +578,35 @@
       "name": "Chainlink USD",
       "qty": 430.970685,
       "avgCost": 11.4857,
-      "last": 11.451,
-      "value": 4935.045313935,
-      "pnl": -14.954682769499597,
-      "dayPct": 1.014465,
+      "last": 11.378,
+      "value": 4903.58445393,
+      "pnl": -46.41554277449977,
+      "dayPct": -0.008783,
       "sparkline": [
         11.336000442504883,
         11.357000350952148,
         11.388999938964844,
-        11.36299991607666,
+        11.362000465393066,
         11.305999755859375,
         11.375,
         11.428999900817871,
         11.435999870300293,
         11.444999694824219,
-        11.506999969482422,
-        11.493000030517578,
-        11.489999771118164,
+        11.508000373840332,
+        11.496000289916992,
+        11.487000465393066,
         11.472000122070312,
         11.340999603271484,
         11.324000358581543,
         11.33899974822998,
-        11.409000396728516,
-        11.411999702453613,
-        11.45199966430664,
-        11.454999923706055,
+        11.437999725341797,
+        11.401000022888184,
+        11.479999542236328,
+        11.425000190734863,
         11.383999824523926,
-        11.37399959564209,
-        11.45199966430664,
-        11.451000213623047
+        11.404000282287598,
+        11.444000244140625,
+        11.378000259399414
       ],
       "crypto": true
     }
@@ -437,259 +617,358 @@
       "equity": 1000000
     },
     {
-      "t": 1788273792318.8413,
+      "t": 1788273804128.4126,
       "equity": 1000000
     },
     {
-      "t": 1788273799766.6826,
+      "t": 1788273823385.8254,
       "equity": 1000000
     },
     {
-      "t": 1788273807214.524,
+      "t": 1788273842643.238,
       "equity": 1000000
     },
     {
-      "t": 1788273814662.365,
+      "t": 1788273861900.651,
       "equity": 1000000
     },
     {
-      "t": 1788273822110.2063,
-      "equity": 1000000
+      "t": 1788273881158.0635,
+      "equity": 999996.1926905463
     },
     {
-      "t": 1788273829558.0476,
-      "equity": 1000000
+      "t": 1788273900415.476,
+      "equity": 999989.842017015
     },
     {
-      "t": 1788273837005.889,
-      "equity": 1000000
+      "t": 1788273919672.889,
+      "equity": 999983.4913434032
     },
     {
-      "t": 1788273844453.7302,
-      "equity": 1000000
+      "t": 1788273938930.3015,
+      "equity": 999977.1406698719
     },
     {
-      "t": 1788273851901.5715,
-      "equity": 1000000
+      "t": 1788273958187.7144,
+      "equity": 999970.7899962602
     },
     {
-      "t": 1788273859349.4126,
-      "equity": 1000000
+      "t": 1788273977445.127,
+      "equity": 999964.4393227289
     },
     {
-      "t": 1788273866797.254,
-      "equity": 1000000
+      "t": 1788273996702.5398,
+      "equity": 999958.0886491172
     },
     {
-      "t": 1788273874245.0952,
-      "equity": 999998.4724362982
+      "t": 1788274015959.9524,
+      "equity": 999951.7379755859
     },
     {
-      "t": 1788273881692.9365,
-      "equity": 999996.0163011126
+      "t": 1788274035217.365,
+      "equity": 999945.3873020547
     },
     {
-      "t": 1788273889140.7778,
-      "equity": 999993.560165927
+      "t": 1788274054474.7778,
+      "equity": 999939.0366284429
     },
     {
-      "t": 1788273896588.6191,
-      "equity": 999991.1040307416
+      "t": 1788274073732.1904,
+      "equity": 999932.6859549116
     },
     {
-      "t": 1788273904036.4602,
-      "equity": 999988.6478956365
+      "t": 1788274092989.6033,
+      "equity": 999926.3352812999
     },
     {
-      "t": 1788273911484.3015,
-      "equity": 999986.191760451
+      "t": 1788274112247.0159,
+      "equity": 999919.9846077686
     },
     {
-      "t": 1788273918932.1428,
-      "equity": 999983.7356252655
+      "t": 1788274131504.4285,
+      "equity": 999913.6339342373
     },
     {
-      "t": 1788273926379.9841,
-      "equity": 999981.27949008
+      "t": 1788274150761.8413,
+      "equity": 999907.2832606256
     },
     {
-      "t": 1788273933827.8254,
-      "equity": 999978.8233548944
+      "t": 1788274170019.254,
+      "equity": 999900.9325870943
     },
     {
-      "t": 1788273941275.6667,
-      "equity": 999976.3672197089
+      "t": 1788274189276.6667,
+      "equity": 999894.5819134825
     },
     {
-      "t": 1788273948723.508,
-      "equity": 999973.9110845233
+      "t": 1788274208534.0793,
+      "equity": 999888.2312399512
     },
     {
-      "t": 1788273956171.349,
-      "equity": 999971.4549494183
+      "t": 1788274227791.492,
+      "equity": 999881.88056642
     },
     {
-      "t": 1788273963619.1904,
-      "equity": 999968.9988142328
+      "t": 1788274247048.9048,
+      "equity": 999848.9376322057
     },
     {
-      "t": 1788273971067.0317,
-      "equity": 999966.5426790472
+      "t": 1788274266306.3174,
+      "equity": 999780.2509998162
     },
     {
-      "t": 1788273978514.873,
-      "equity": 999964.0865438617
+      "t": 1788274285563.7302,
+      "equity": 999769.3170565219
     },
     {
-      "t": 1788273985962.7144,
-      "equity": 999961.6304086761
+      "t": 1788274304821.1428,
+      "equity": 999758.3831133662
     },
     {
-      "t": 1788273993410.5557,
-      "equity": 999959.1742734906
+      "t": 1788274324078.5557,
+      "equity": 999747.4491700717
     },
     {
-      "t": 1788274000858.3967,
-      "equity": 999956.7181383856
+      "t": 1788274343335.9683,
+      "equity": 999736.5152269161
     },
     {
-      "t": 1788274008306.238,
-      "equity": 999954.2620032
+      "t": 1788274362593.3809,
+      "equity": 999725.5812837603
     },
     {
-      "t": 1788274015754.0793,
-      "equity": 999951.8058680145
+      "t": 1788274381850.7937,
+      "equity": 999714.6473404659
     },
     {
-      "t": 1788274023201.9207,
-      "equity": 999949.3497328289
+      "t": 1788274401108.2063,
+      "equity": 999703.7133973102
     },
     {
-      "t": 1788274030649.762,
-      "equity": 999946.8935976435
+      "t": 1788274420365.6191,
+      "equity": 999692.7794540158
     },
     {
-      "t": 1788274038097.6033,
-      "equity": 999944.4374624579
+      "t": 1788274439623.0317,
+      "equity": 999681.8455108601
     },
     {
-      "t": 1788274045545.4443,
-      "equity": 999941.9813273528
+      "t": 1788274458880.4443,
+      "equity": 999670.9115677043
     },
     {
-      "t": 1788274052993.2856,
-      "equity": 999939.5251921674
+      "t": 1788274478137.8572,
+      "equity": 999659.97762441
     },
     {
-      "t": 1788274060441.127,
-      "equity": 999937.0690569818
+      "t": 1788274497395.2698,
+      "equity": 999649.0436812541
     },
     {
-      "t": 1788274067888.9683,
-      "equity": 999934.6129217963
+      "t": 1788274516652.6826,
+      "equity": 999638.1097379598
     },
     {
-      "t": 1788274075336.8096,
-      "equity": 999932.1567866107
+      "t": 1788274535910.0952,
+      "equity": 999627.1757948041
     },
     {
-      "t": 1788274082784.651,
-      "equity": 999929.7006514252
+      "t": 1788274555167.508,
+      "equity": 999616.2418515097
     },
     {
-      "t": 1788274090232.492,
-      "equity": 999927.2445163202
+      "t": 1788274574424.9207,
+      "equity": 999605.307908354
     },
     {
-      "t": 1788274097680.3333,
-      "equity": 999924.7883811346
+      "t": 1788274593682.3333,
+      "equity": 999594.3739651982
     },
     {
-      "t": 1788274105128.1746,
-      "equity": 999922.3322459491
+      "t": 1788274612939.746,
+      "equity": 999583.4400219038
     },
     {
-      "t": 1788274112576.0159,
-      "equity": 999919.8761107635
+      "t": 1788274632197.1587,
+      "equity": 999569.4584814891
     },
     {
-      "t": 1788274120023.8572,
-      "equity": 999917.419975578
+      "t": 1788274651454.5715,
+      "equity": 999551.8493251522
     },
     {
-      "t": 1788274127471.6985,
-      "equity": 999914.9638403924
+      "t": 1788274670711.9841,
+      "equity": 999534.2401690386
     },
     {
-      "t": 1788274134919.5398,
-      "equity": 999912.507705207
+      "t": 1788274689969.3967,
+      "equity": 999516.6310129251
     },
     {
-      "t": 1788274142367.3809,
-      "equity": 999910.0515701019
+      "t": 1788274709226.8096,
+      "equity": 999499.0218565882
     },
     {
-      "t": 1788274149815.2222,
-      "equity": 999907.5954349163
+      "t": 1788274728484.2222,
+      "equity": 999481.4127004746
     },
     {
-      "t": 1788274157263.0635,
-      "equity": 999905.1392997308
+      "t": 1788274747741.635,
+      "equity": 999463.8035441377
     },
     {
-      "t": 1788274164710.9048,
-      "equity": 999902.6831645453
+      "t": 1788274766999.0476,
+      "equity": 999446.194388024
     },
     {
-      "t": 1788274172158.746,
-      "equity": 999900.2270293598
+      "t": 1788274786256.4602,
+      "equity": 999428.5852319105
     },
     {
-      "t": 1788274179606.5874,
-      "equity": 999897.7708941742
+      "t": 1788274805513.873,
+      "equity": 999410.9760755736
     },
     {
-      "t": 1788274187054.4285,
-      "equity": 999895.3147590692
+      "t": 1788274824771.2856,
+      "equity": 999393.36691946
     },
     {
-      "t": 1788274194502.2698,
-      "equity": 999892.8586238837
+      "t": 1788274844028.6985,
+      "equity": 999375.7577631231
     },
     {
-      "t": 1788274201950.111,
-      "equity": 999890.4024886981
+      "t": 1788274863286.111,
+      "equity": 999358.1486070096
     },
     {
-      "t": 1788274209397.9524,
-      "equity": 999887.9463535126
+      "t": 1788274882543.524,
+      "equity": 999340.5394506727
     },
     {
-      "t": 1788274216845.7937,
-      "equity": 999885.490218327
+      "t": 1788274901800.9365,
+      "equity": 999322.9302945591
     },
     {
-      "t": 1788274224293.635,
-      "equity": 999883.0340831415
+      "t": 1788274921058.349,
+      "equity": 999305.3211384455
     },
     {
-      "t": 1788274231741.476,
-      "equity": 999880.5779480365
+      "t": 1788274940315.762,
+      "equity": 999287.7119821087
     },
     {
-      "t": 1788274239189.3174,
-      "equity": 999878.1218128509
+      "t": 1788274959573.1746,
+      "equity": 999270.102825995
     },
     {
-      "t": 1788274246637.1587,
-      "equity": 999852.5510492477
+      "t": 1788274978830.5874,
+      "equity": 999252.4936696582
     },
     {
-      "t": 1788274254085,
-      "equity": 999787.19
+      "t": 1788274998088,
+      "equity": 999231.19
     }
   ],
   "fills": [
+    {
+      "side": "buy",
+      "ticker": "AVAX-USD",
+      "name": "Avalanche USD",
+      "at": "2026-09-01T15:03:18.087Z",
+      "qty": 133.533877,
+      "price": 7.3127,
+      "reason": "We bought Avalanche USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "side": "sell",
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "at": "2026-09-01T15:03:18.087Z",
+      "qty": 163,
+      "price": 88.6257,
+      "reason": "We sold Intel Corporation because we no longer want this stock."
+    },
+    {
+      "side": "buy",
+      "ticker": "XLE",
+      "name": "State Street Energy Select Sect",
+      "at": "2026-09-01T15:03:18.087Z",
+      "qty": 65,
+      "price": 64.4722,
+      "reason": "We bought XLE because it is a relative-strength leader: up 0.8% on the session, 1.9× usual volume, beating the S&P by 1.2 points, RSI 51 is not stretched. Stop is under the range; this has to pay or we cut it."
+    },
+    {
+      "side": "buy",
+      "ticker": "AVAX-USD",
+      "name": "Avalanche USD",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 949.994092,
+      "price": 7.3227,
+      "reason": "We bought Avalanche USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "side": "buy",
+      "ticker": "ADA-USD",
+      "name": "Cardano USD",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 34887.270507,
+      "price": 0.1994,
+      "reason": "We bought Cardano USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "side": "buy",
+      "ticker": "XLE",
+      "name": "State Street Energy Select Sect",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 223,
+      "price": 64.3922,
+      "reason": "We bought XLE as a same-session tape trade: up 0.6% on the session, 1.9× usual volume, beating the S&P by 1.1 points. Hard stop; we flatten into the close if it does not pay."
+    },
+    {
+      "side": "buy",
+      "ticker": "INTC",
+      "name": "Intel Corporation",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 163,
+      "price": 88.084,
+      "reason": "We bought Intel as a same-session tape trade: down 1.6% on the session, 5.3× usual volume, lagging the S&P by 1.2 points. Hard stop; we flatten into the close if it does not pay."
+    },
+    {
+      "side": "buy",
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 44,
+      "price": 324.8223,
+      "reason": "We bought Apple Inc. as a same-session tape trade: up 2.5% on the session, 3.3× usual volume, beating the S&P by 2.9 points. Hard stop; we flatten into the close if it does not pay."
+    },
+    {
+      "side": "buy",
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 120,
+      "price": 81.3356,
+      "reason": "We bought Netflix as a compounder, not a day trade. Tape: up 0.3% on the session, beating the S&P by 0.8 points, RSI 60 is not stretched, holding the 50-day. We hold until the thesis or the stop breaks."
+    },
+    {
+      "side": "buy",
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 30,
+      "price": 324.8223,
+      "reason": "We bought Apple Inc. as a compounder, not a day trade. Tape: up 2.5% on the session, 3.3× usual volume, beating the S&P by 2.9 points, RSI 73, stretched, so the stop is tight, holding the 50-day. We hold until the thesis or the stop breaks."
+    },
+    {
+      "side": "buy",
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "at": "2026-09-01T14:57:03.392Z",
+      "qty": 12,
+      "price": 324.8223,
+      "reason": "We bought Apple Inc. because it is a relative-strength leader: up 2.5% on the session, 3.3× usual volume, beating the S&P by 2.9 points, RSI 73, stretched, so the stop is tight. Stop is under the range; this has to pay or we cut it."
+    },
     {
       "side": "buy",
       "ticker": "LINK-USD",
@@ -806,27 +1085,116 @@
       "qty": 10,
       "price": 949.6196,
       "reason": "We bought Costco Wholesale as a long-term holding in a large U.S. company."
-    },
-    {
-      "side": "buy",
-      "ticker": "HOOD",
-      "name": "Robinhood Markets, Inc.",
-      "at": "2026-09-01T14:44:29.607Z",
-      "qty": 39,
-      "price": 106.3582,
-      "reason": "We bought Robinhood Markets because it was up 1.4% today and trading much more than usual and beating the overall market."
-    },
-    {
-      "side": "buy",
-      "ticker": "SPY",
-      "name": "State Street SPDR S&P 500 ETF T",
-      "at": "2026-09-01T14:44:29.601Z",
-      "qty": 209,
-      "price": 764.422,
-      "reason": "We bought S&P 500 as a simple stand-in for the overall stock market."
     }
   ],
   "brainRev": 7,
   "lastCloseDay": null,
-  "closePenalties": 0
+  "closePenalties": 0,
+  "lastResearchAt": 1788275079802,
+  "market": "S&P -0.49% · Nasdaq -0.96% · Bitcoin -0.84% · Ether -1.08%. Leaders: AAPL +2.19%, LTC-USD +1.85%, WMT +1.66%, ADA-USD +1.59%. Laggards: TSLA -2.59%, SOL-USD -1.30%, MSFT -1.17%. Tape news: Ondas Drops 6% as Risk-Off Selling Cascades Through Drone Names, Red Cat Slides 3% · Pre-Market Futures Lower to Start September · Stock Market Today: Dow Falls As Oil Prices Climb; This Medical Technology Name Hits A Buy Point (Live Coverage). Job is still beat the S&P after the 6.5% loan. If the book is red into the cash close, it gets fined.",
+  "whale": "Public flow in the headlines: ETF Asset Flow of August: S&P 500 Tops · Forget Diversification — Investors Are Betting Everything on Tech ETFs (And the Numbers Are Jaw-Dropping) · Netflix Is Down 46% From Its High. Is This a Once-in-a-Lifetime Buying Opportunity Before the Stock Goes Parabolic?.",
+  "technique": {
+    "title": "Relative strength vs the S&P",
+    "body": "Only add names that are beating SPY with real volume. Flatten the day-trader sleeve into the close. Fine the book if it finishes red versus the daily loan hurdle."
+  },
+  "dossiers": [
+    {
+      "ticker": "SOL-USD",
+      "name": "Solana USD",
+      "stance": "flat",
+      "thesis": "Solana USD is the 24/7 sleeve. -1.30% now. We hold a sized core while cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "ticker": "ETH-USD",
+      "name": "Ethereum USD",
+      "stance": "flat",
+      "thesis": "Ethereum USD is the 24/7 sleeve. -1.08% now. We hold a sized core while cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "stance": "flat",
+      "thesis": "Microsoft Corporation -1.17% on the session, RSI 42. Hold if owned. No new buy until it beats the S&P."
+    },
+    {
+      "ticker": "BTC-USD",
+      "name": "Bitcoin USD",
+      "stance": "long",
+      "thesis": "Bitcoin USD is the 24/7 sleeve. -0.84% now. We hold a sized core while cash equities are shut, with a stop under the recent range."
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "stance": "long",
+      "thesis": "Apple Inc. +2.19% on the session, RSI 57. Tape still allows adding if volume confirms."
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "stance": "flat",
+      "thesis": "NVIDIA Corporation -1.00% on the session, RSI 72. Hold if owned. No new buy until it beats the S&P."
+    },
+    {
+      "ticker": "QQQ",
+      "name": "Invesco QQQ Trust, Series 1",
+      "stance": "flat",
+      "thesis": "Invesco QQQ Trust, Series 1 -0.96% on the session, RSI 74. Hold if owned. No new buy until it beats the S&P."
+    },
+    {
+      "ticker": "SPY",
+      "name": "State Street SPDR S&P 500 ETF T",
+      "stance": "long",
+      "thesis": "S&P core. -0.49% on the session. We keep this as market beta so a pile of one-off names cannot silently lag the index."
+    }
+  ],
+  "notes": [
+    {
+      "kind": "company",
+      "title": "flat SOL-USD",
+      "body": "Solana USD is the 24/7 sleeve. -1.30% now. We hold a sized core while cash equities are shut, with a stop under the recent range.",
+      "at": "2026-09-01T15:04:39.801Z"
+    },
+    {
+      "kind": "company",
+      "title": "flat ETH-USD",
+      "body": "Ethereum USD is the 24/7 sleeve. -1.08% now. We hold a sized core while cash equities are shut, with a stop under the recent range.",
+      "at": "2026-09-01T15:04:39.801Z"
+    },
+    {
+      "kind": "company",
+      "title": "long BTC-USD",
+      "body": "Bitcoin USD is the 24/7 sleeve. -0.84% now. We hold a sized core while cash equities are shut, with a stop under the recent range.",
+      "at": "2026-09-01T15:04:39.800Z"
+    },
+    {
+      "kind": "company",
+      "title": "flat MSFT",
+      "body": "Microsoft Corporation -1.17% on the session, RSI 42. Hold if owned. No new buy until it beats the S&P.",
+      "at": "2026-09-01T15:04:39.799Z"
+    },
+    {
+      "kind": "company",
+      "title": "long AAPL",
+      "body": "Apple Inc. +2.19% on the session, RSI 57. Tape still allows adding if volume confirms.",
+      "at": "2026-09-01T15:04:39.798Z"
+    },
+    {
+      "kind": "company",
+      "title": "flat NVDA",
+      "body": "NVIDIA Corporation -1.00% on the session, RSI 72. Hold if owned. No new buy until it beats the S&P.",
+      "at": "2026-09-01T15:04:39.797Z"
+    },
+    {
+      "kind": "company",
+      "title": "flat QQQ",
+      "body": "Invesco QQQ Trust, Series 1 -0.96% on the session, RSI 74. Hold if owned. No new buy until it beats the S&P.",
+      "at": "2026-09-01T15:04:39.796Z"
+    },
+    {
+      "kind": "company",
+      "title": "long SPY",
+      "body": "S&P core. -0.49% on the session. We keep this as market beta so a pile of one-off names cannot silently lag the index.",
+      "at": "2026-09-01T15:04:39.796Z"
+    }
+  ]
 }
