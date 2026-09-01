@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>0xFF</title>
+    <meta
+      name="description"
+      content="0xFF is a public $1,000,000 paper desk. Fake money. Real tape. Every fill is published."
+    />
+    <meta property="og:title" content="0xFF" />
+    <meta
+      property="og:description"
+      content="Follow-only $1M paper trader. Beat the S&P after a 6.5% loan."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://qxlsz.github.io/0xFF/" />
+    <meta property="og:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="0xFF" />
+    <meta
+      name="twitter:description"
+      content="Follow-only $1M paper trader. Fake money. Real tape."
+    />
+    <meta name="twitter:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://qxlsz.github.io/0xFF/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #09090b;
+        --fg: #f4f1ea;
+        --muted: #9a9891;
+        --line: #2a2a30;
+        --card: #111114;
+        --long: #6eab8a;
+        --hold: #c4b58a;
+        --dot: #6eab8a;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--bg); color: var(--fg); }
+      body {
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle at 1px 1px, rgb(110 171 138 / 0.07) 1px, transparent 0);
+        background-size: 28px 28px;
+        mask-image: linear-gradient(180deg, #000 0%, transparent 72%);
+      }
+      h1, h2 {
+        font-family: Newsreader, Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+        line-height: 1.15;
+      }
+      a { color: var(--long); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; position: relative; }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .hex {
+        width: 1.75rem;
+        height: 1.75rem;
+        flex: none;
+      }
+      .kicker {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--long);
+      }
+      .clock {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        letter-spacing: 0.04em;
+      }
+      .live {
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 999px;
+        background: var(--dot);
+        box-shadow: 0 0 0 4px rgb(110 171 138 / 0.12);
+      }
+      .live.off { background: var(--muted); box-shadow: none; }
+      h1 { font-size: clamp(2.5rem, 8vw, 3.8rem); margin: 1.6rem 0 0.85rem; }
+      .lede { font-size: 1.125rem; color: var(--muted); max-width: 34rem; margin: 0; }
+      .hero-num {
+        margin: 2.4rem 0 0.35rem;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: clamp(2.2rem, 8vw, 3.35rem);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+      .row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.25rem 0 2.25rem; }
+      .row div { min-width: 6.5rem; }
+      .row dt { font-size: 0.75rem; color: var(--muted); }
+      .row dd { margin: 0.15rem 0 0; font-variant-numeric: tabular-nums; }
+      hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+      h2 { font-size: 1.65rem; margin: 0 0 0.75rem; }
+      p { color: var(--fg); }
+      p.muted { color: var(--muted); }
+      ul { padding: 0; margin: 0; list-style: none; }
+      li {
+        padding: 0.9rem 0;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 7.6rem 1fr;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+      }
+      li span {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        color: var(--hold);
+        padding-top: 0.2rem;
+      }
+      .btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        height: 2.75rem;
+        padding: 0 1.15rem;
+        border-radius: 0.5rem;
+        background: var(--fg);
+        color: var(--bg);
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .btn:hover { text-decoration: none; opacity: 0.9; }
+      .btn.ghost {
+        background: transparent;
+        color: var(--fg);
+        border: 1px solid var(--line);
+      }
+      footer { margin-top: 3rem; font-size: 0.8rem; color: var(--muted); }
+      @media (prefers-reduced-motion: reduce) {
+        .live { box-shadow: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="top">
+        <div class="brand">
+          <svg class="hex" viewBox="0 0 100 100" aria-hidden="true">
+            <polygon points="50,8 90,31 90,69 50,92 10,69 10,31" fill="#6eab8a" />
+          </svg>
+          <p class="kicker">0xFF</p>
+        </div>
+        <p class="clock" id="clock">
+          <span class="live off" id="pulse"></span>
+          <span id="session">NYSE</span>
+        </p>
+      </div>
+
+      <h1>A million dollars of play money, traded in public.</h1>
+      <p class="lede">
+        Follow-only paper desk. Fake money, real tape. Every buy and sell is
+        published with a why you can actually read.
+      </p>
+
+      <p class="hero-num">$1,000,000</p>
+      <p class="muted">Starting cash · treated as a 6.5% loan that has to beat the S&P.</p>
+
+      <dl class="row">
+        <div>
+          <dt>Scan</dt>
+          <dd>Every 5 min</dd>
+        </div>
+        <div>
+          <dt>Research</dt>
+          <dd>Every 3 hours</dd>
+        </div>
+        <div>
+          <dt>Deploy</dt>
+          <dd>~84% working</dd>
+        </div>
+        <div>
+          <dt>Book</dt>
+          <dd>Up to 22 names</dd>
+        </div>
+      </dl>
+
+      <div class="btns">
+        <a class="btn" href="https://github.com/qxlsz/0xFF">Open the repo</a>
+        <a class="btn ghost" href="https://github.com/qxlsz/0xFF#how-it-trades">How it trades</a>
+      </div>
+
+      <hr />
+
+      <h2>How the desk is built</h2>
+      <ul>
+        <li><span>Ballast</span>About 16% in the S&P so it cannot lag the index forever.</li>
+        <li><span>Day trader</span>Flow and breakout rotate the same session. Tight stops. Not frozen.</li>
+        <li><span>Quality</span>Mega-caps and sector funds stay until stop, target, or the thesis dies.</li>
+        <li><span>Crypto</span>Bitcoin, Ethereum, Solana around the clock. Loud alts only when the tape is moving.</li>
+        <li><span>Loan</span>The million is a 6.5% loan. After interest, beat SPY or it was just parking cash.</li>
+      </ul>
+
+      <footer>
+        Play money only. Not advice. Not a broker.
+        <br />
+        Live at
+        <a href="https://qxlsz.github.io/0xFF/">qxlsz.github.io/0xFF</a>
+        ·
+        <a href="https://github.com/qxlsz/0xFF">github.com/qxlsz/0xFF</a>
+      </footer>
+    </main>
+    <script>
+      (function () {
+        var LABELS = { pre: "Pre-market", open: "Open", after: "After hours", closed: "Closed" };
+        function tick() {
+          var parts = new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/New_York",
+            weekday: "short",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hourCycle: "h23",
+          }).formatToParts(new Date());
+          var get = function (t) {
+            var p = parts.find(function (x) { return x.type === t; });
+            return p ? p.value : "";
+          };
+          var weekday = get("weekday");
+          var hour = Number(get("hour"));
+          var minute = Number(get("minute"));
+          var second = Number(get("second"));
+          var mins = hour * 60 + minute;
+          var weekend = weekday === "Sat" || weekday === "Sun";
+          var session = "closed";
+          if (!weekend) {
+            if (mins >= 240 && mins < 570) session = "pre";
+            else if (mins >= 570 && mins < 960) session = "open";
+            else if (mins >= 960 && mins < 1200) session = "after";
+          }
+          var clock =
+            String(hour).padStart(2, "0") +
+            ":" +
+            String(minute).padStart(2, "0") +
+            ":" +
+            String(second).padStart(2, "0");
+          var live = session !== "closed";
+          document.getElementById("session").textContent =
+            "NYSE " + clock + " · " + LABELS[session];
+          document.getElementById("pulse").className = live ? "live" : "live off";
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+    </script>
+  </body>
+</html>
