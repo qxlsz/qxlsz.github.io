@@ -1,1 +1,26 @@
-placeholder
+{
+  "asOf": "2026-09-02T10:13:48Z",
+  "createdAt": "2026-09-01T19:39:42.587Z",
+  "startCash": 1000000,
+  "equity": 999253.6601524324,
+  "cash": 656408.8962879919,
+  "buyingPower": 656408.8962879919,
+  "invested": 342844.7638644405,
+  "deployPct": 0.34310083368835576,
+  "dayUsd": -746.3398475676076,
+  "dayPct": -0.0007463398475676076,
+  "trades": 9,
+  "names": 9,
+  "regime": "riskOff",
+  "regimeLabel": "Risk-off. Shock absorber and the S&P core take over.",
+  "last": {
+    "side": "buy",
+    "ticker": "AVAX-USD",
+    "at": "2026-09-01T19:41:07.013Z",
+    "price": 7.2416,
+    "reason": "We bought Avalanche USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
+  },
+  "holdings": [],
+  "fills": [],
+  "brainRev": 7
+}
