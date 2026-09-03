@@ -32,6 +32,7 @@
     loadError: false,
   };
   var lastFocus = null;
+  var lastOpenTicker = null;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -125,17 +126,18 @@
     var sessionEl = document.getElementById("session");
     var pulse = document.getElementById("pulse");
     if (sessionEl) {
+      var compact = window.matchMedia("(max-width: 420px)").matches;
+      var clockOpts = { hour: "numeric", minute: "2-digit", timeZoneName: "short" };
+      if (!compact) clockOpts.second = "2-digit";
       sessionEl.textContent =
-        new Intl.DateTimeFormat("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
-          second: "2-digit",
-          timeZoneName: "short",
-        }).format(new Date()) +
+        new Intl.DateTimeFormat("en-US", clockOpts).format(new Date()) +
         " · " +
         labels[session];
     }
-    if (pulse) pulse.className = session === "closed" ? "live off" : "live";
+    if (pulse) {
+      pulse.className = session === "closed" ? "live off" : "live";
+      pulse.setAttribute("aria-hidden", "true");
+    }
   }
   function curveFor(book, range) {
     var pts = (book.curve || []).slice();
@@ -618,6 +620,32 @@
       '<p class="note">Play money only. Not advice. Not a broker. Source: <a href="https://github.com/qxlsz/qxlsz.github.io">github.com/qxlsz/qxlsz.github.io</a></p></section>'
     );
   }
+  function sheetFocusables(card) {
+    if (!card) return [];
+    return Array.prototype.filter.call(card.querySelectorAll("button, [href], [tabindex]:not([tabindex='-1'])"), function (node) {
+      return !node.disabled;
+    });
+  }
+  function setSheetChrome(open) {
+    var app = document.querySelector(".app");
+    var dock = document.getElementById("dock");
+    if (app) {
+      if (open) app.setAttribute("inert", "");
+      else app.removeAttribute("inert");
+    }
+    if (dock) {
+      if (open) dock.setAttribute("inert", "");
+      else dock.removeAttribute("inert");
+    }
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  function restoreOpener() {
+    var btn = lastOpenTicker ? document.querySelector('[data-open="' + lastOpenTicker.replace(/"/g, "") + '"]') : null;
+    if (btn) btn.focus();
+    else if (lastFocus && document.contains(lastFocus) && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
+    lastOpenTicker = null;
+  }
   function renderSheet() {
     var el = document.getElementById("sheet");
     if (!el) return;
@@ -627,16 +655,20 @@
       el.className = "sheet";
       el.removeAttribute("data-ticker");
       el.innerHTML = "";
-      if (wasOpen && lastFocus && lastFocus.focus) lastFocus.focus();
-      lastFocus = null;
+      setSheetChrome(false);
+      if (wasOpen) restoreOpener();
       return;
     }
     var up = (h.dayPct || 0) >= 0;
     var opening = !el.classList.contains("on");
     var same = el.getAttribute("data-ticker") === h.ticker && !opening;
-    if (opening) lastFocus = document.activeElement;
+    if (opening) {
+      lastFocus = document.activeElement;
+      lastOpenTicker = h.ticker;
+    }
     el.className = "sheet on";
     el.setAttribute("data-ticker", h.ticker);
+    setSheetChrome(true);
     if (same) return;
     el.innerHTML =
       '<div class="card" role="dialog" aria-modal="true" aria-labelledby="sheet-title">' +
@@ -668,7 +700,13 @@
       '<button class="done" type="button" data-close="1">Done</button></div>';
     if (opening) {
       var done = el.querySelector(".done");
-      if (done) done.focus();
+      if (done) {
+        try {
+          done.focus({ focusVisible: true });
+        } catch (err) {
+          done.focus();
+        }
+      }
     }
   }
   function bind() {
@@ -771,8 +809,10 @@
       })
       .then(function (book) {
         if (book) {
+          var unchanged = state.book && state.book.asOf === book.asOf;
           state.book = book;
           state.loadError = false;
+          if (unchanged) return;
         } else if (!state.book) {
           state.loadError = true;
         }
@@ -791,9 +831,33 @@
     }
   });
   document.addEventListener("keydown", function (ev) {
-    if (ev.key === "Escape" && state.selected) {
+    if (!state.selected) return;
+    if (ev.key === "Escape") {
       state.selected = null;
       renderSheet();
+      return;
+    }
+    if (ev.key !== "Tab") return;
+    var card = document.querySelector("#sheet .card");
+    var list = sheetFocusables(card);
+    if (!list.length) {
+      ev.preventDefault();
+      return;
+    }
+    var first = list[0];
+    var last = list[list.length - 1];
+    var inside = card && card.contains(document.activeElement);
+    if (!inside) {
+      ev.preventDefault();
+      first.focus();
+      return;
+    }
+    if (ev.shiftKey && document.activeElement === first) {
+      ev.preventDefault();
+      last.focus();
+    } else if (!ev.shiftKey && document.activeElement === last) {
+      ev.preventDefault();
+      first.focus();
     }
   });
 
