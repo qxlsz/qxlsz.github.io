@@ -126,7 +126,7 @@
     var sessionEl = document.getElementById("session");
     var pulse = document.getElementById("pulse");
     if (sessionEl) {
-      var compact = window.matchMedia("(max-width: 420px)").matches;
+      var compact = window.innerWidth < 860;
       var clockOpts = { hour: "numeric", minute: "2-digit", timeZoneName: "short" };
       if (!compact) clockOpts.second = "2-digit";
       sessionEl.textContent =
