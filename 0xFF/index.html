@@ -10,9 +10,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://qxlsz.github.io/0xFF/" />
     <meta property="og:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
+    <meta property="og:image:alt" content="0xFF experiments desk card" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="0xFF" />
+    <meta name="twitter:description" content="Follow-only $1M paper trader. Live book." />
     <meta name="twitter:image" content="https://qxlsz.github.io/0xFF/og.jpg" />
+    <meta name="twitter:image:alt" content="0xFF experiments desk card" />
+    <meta name="twitter:site" content="@qxlsz" />
     <meta name="theme-color" content="#09090b" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://qxlsz.github.io/0xFF/" />
@@ -45,6 +51,7 @@
       }
       button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
       a { color: var(--long); text-decoration: none; }
+      :focus-visible { outline: 2px solid var(--long); outline-offset: 3px; }
       .app { max-width: 1080px; margin: 0 auto; padding: 0 1rem 5.5rem; }
       header.top {
         position: sticky; top: 0; z-index: 20;
@@ -58,6 +65,7 @@
       .kicker {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
         font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--long);
+        margin: 0; font-weight: 500;
       }
       .clock {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -72,7 +80,8 @@
       }
       nav.tabs button.on { background: var(--bg-elev); color: var(--fg); }
       .desk { display: grid; gap: 1.5rem; padding-top: 0.4rem; }
-      .hero-label { font-size: 0.8rem; color: var(--muted); margin: 0; }
+      .hero-label { font-size: 0.8rem; color: var(--muted); margin: 0; font-weight: 400; }
+      h2.equity { font-weight: 500; }
       .equity {
         font-family: "IBM Plex Mono", ui-monospace, monospace;
         font-size: clamp(2.15rem, 7vw, 3.15rem);
@@ -158,6 +167,7 @@
       }
       .sheet .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1.1rem; }
       .sheet .cell { background: var(--bg); border-radius: 12px; padding: 0.8rem 0.9rem; }
+      .sheet .cell dl { margin: 0; }
       .sheet .cell dt { font-size: 0.72rem; color: var(--muted); }
       .sheet .cell dd { margin: 0.2rem 0 0; font-variant-numeric: tabular-nums; }
       .done { margin-top: 1.1rem; width: 100%; height: 2.75rem; border-radius: 12px; background: var(--fg); color: var(--bg); font-weight: 500; }
@@ -183,15 +193,15 @@
           <svg class="hex" viewBox="0 0 100 100" aria-hidden="true">
             <polygon points="50,8 90,31 90,69 50,92 10,69 10,31" fill="#6eab8a" />
           </svg>
-          <p class="kicker">0xFF</p>
+          <h1 class="kicker">0xFF</h1>
         </div>
-        <nav class="tabs" id="tabs-desk"></nav>
-        <p class="clock"><span class="live off" id="pulse"></span><span id="session">NYSE</span></p>
+        <nav class="tabs" id="tabs-desk" aria-label="Desk views"></nav>
+        <p class="clock"><span class="live off" id="pulse" aria-hidden="true"></span><span id="session">NYSE</span></p>
       </header>
 
       <main id="root"><p class="empty">Loading the live book…</p></main>
     </div>
-    <nav class="dock" id="dock"></nav>
+    <nav class="dock" id="dock" aria-label="Desk views"></nav>
     <div class="sheet" id="sheet"></div>
     <script src="./app.js" defer></script>
   </body>

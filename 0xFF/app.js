@@ -28,7 +28,10 @@
     book: null,
     selected: null,
     hover: null,
+    hoverIdx: null,
+    loadError: false,
   };
+  var lastFocus = null;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -343,7 +346,7 @@
       (h.crypto ? " " + esc(shown(h.ticker)) : " shares") +
       "</span></span>" +
       (spark
-        ? '<svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none"><path d="' +
+        ? '<svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="' +
           spark +
           '" fill="none" stroke="' +
           (up ? "#6eab8a" : "#d07070") +
@@ -354,7 +357,7 @@
       '</span><span class="d ' +
       (up ? "up" : "down") +
       '">' +
-      esc(pct(h.dayPct)) +
+      esc(pct((h.dayPct || 0) * 100)) +
       "</span></span></button>"
     );
   }
@@ -365,7 +368,9 @@
         v.id +
         '" class="' +
         (state.view === v.id ? "on" : "") +
-        '">' +
+        '"' +
+        (state.view === v.id ? ' aria-current="page"' : "") +
+        ">" +
         v.label +
         "</button>"
       );
@@ -416,6 +421,8 @@
         r.id +
         '" class="' +
         (state.range === r.id ? "on " + (win.up ? "up" : "down") : "") +
+        '" aria-pressed="' +
+        (state.range === r.id ? "true" : "false") +
         '">' +
         r.label +
         "</button>"
@@ -451,7 +458,7 @@
       '<div class="chart-wrap" id="chart">' +
       chartSvg(pts, win.up, book.fills) +
       "</div>" +
-      '<p class="chart-hint" id="chart-hint">Scrub the line for time and value. Dots are buys and sells.</p>' +
+      '<p class="chart-hint" id="chart-hint">Scrub the line for time and value. Arrow keys also work. Dots are buys and sells.</p>' +
       '<div class="ranges">' +
       rangeBtns +
       "</div>" +
@@ -470,7 +477,7 @@
     var fills = book.fills || [];
     if (!fills.length) return '<p class="empty">No fills yet.</p>';
     return (
-      '<section><p class="hero-label">Activity</p><h1 class="equity" style="font-size:1.8rem">Recent trades</h1>' +
+      '<section><p class="hero-label">Activity</p><h2 class="equity" style="font-size:1.8rem">Recent trades</h2>' +
       fills
         .map(function (f) {
           var tone = f.side === "buy" ? "up" : "down";
@@ -608,7 +615,7 @@
       (book.closePenalties > 0 ? acctRow("Close penalties", money(book.closePenalties), -1) : "") +
       acctRow("Tape", book.regimeLabel || book.regime || "—") +
       "</dl>" +
-      '<p class="note">Play money only. Not advice. Not a broker. Source: <a href="https://github.com/qxlsz/0xFF">github.com/qxlsz/0xFF</a></p></section>'
+      '<p class="note">Play money only. Not advice. Not a broker. Source: <a href="https://github.com/qxlsz/qxlsz.github.io">github.com/qxlsz/qxlsz.github.io</a></p></section>'
     );
   }
   function renderSheet() {
@@ -616,16 +623,24 @@
     if (!el) return;
     var h = state.selected;
     if (!h) {
+      var wasOpen = el.classList.contains("on");
       el.className = "sheet";
+      el.removeAttribute("data-ticker");
       el.innerHTML = "";
+      if (wasOpen && lastFocus && lastFocus.focus) lastFocus.focus();
+      lastFocus = null;
       return;
     }
     var up = (h.dayPct || 0) >= 0;
+    var opening = !el.classList.contains("on");
+    var same = el.getAttribute("data-ticker") === h.ticker && !opening;
+    if (opening) lastFocus = document.activeElement;
     el.className = "sheet on";
+    el.setAttribute("data-ticker", h.ticker);
+    if (same) return;
     el.innerHTML =
-      '<div class="card" role="dialog" aria-label="' +
-      esc(shown(h.ticker)) +
-      '"><h3>' +
+      '<div class="card" role="dialog" aria-modal="true" aria-labelledby="sheet-title">' +
+      '<h3 id="sheet-title">' +
       esc(shown(h.ticker)) +
       '</h3><p class="muted">' +
       esc(h.name || "") +
@@ -634,22 +649,27 @@
       '</p><p class="' +
       (up ? "up" : "down") +
       '">' +
-      esc(pct(h.dayPct)) +
+      esc(pct((h.dayPct || 0) * 100)) +
       ' today</p><div class="grid">' +
-      '<div class="cell"><dt>Shares</dt><dd>' +
+      '<div class="cell"><dl><dt>Shares</dt><dd>' +
       esc(qty(h.qty)) +
-      "</dd></div>" +
-      '<div class="cell"><dt>Avg cost</dt><dd>' +
+      "</dd></dl></div>" +
+      '<div class="cell"><dl><dt>Avg cost</dt><dd>' +
       esc(money(h.avgCost)) +
-      "</dd></div>" +
-      '<div class="cell"><dt>Market value</dt><dd>' +
+      "</dd></dl></div>" +
+      '<div class="cell"><dl><dt>Market value</dt><dd>' +
       esc(money(h.value)) +
-      "</dd></div>" +
-      '<div class="cell"><dt>Total return</dt><dd class="' +
+      "</dd></dl></div>" +
+      '<div class="cell"><dl><dt>Total return</dt><dd class="' +
       (h.pnl >= 0 ? "up" : "down") +
       '">' +
       esc(signed(h.pnl)) +
-      '</dd></div></div><button class="done" type="button" data-close="1">Done</button></div>';
+      "</dd></dl></div></div>" +
+      '<button class="done" type="button" data-close="1">Done</button></div>';
+    if (opening) {
+      var done = el.querySelector(".done");
+      if (done) done.focus();
+    }
   }
   function bind() {
     document.querySelectorAll("[data-view]").forEach(function (btn) {
@@ -657,6 +677,7 @@
         state.view = btn.getAttribute("data-view");
         state.selected = null;
         state.hover = null;
+        state.hoverIdx = null;
         render();
       };
     });
@@ -664,6 +685,7 @@
       btn.onclick = function () {
         state.range = btn.getAttribute("data-range");
         state.hover = null;
+        state.hoverIdx = null;
         render();
       };
     });
@@ -679,24 +701,45 @@
     var chart = document.getElementById("chart");
     if (chart && state.book) {
       var pts = curveFor(state.book, state.range);
-      chart.onmousemove = function (ev) {
-        var r = chart.getBoundingClientRect();
-        var x = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
-        var i = Math.round(x * (pts.length - 1));
-        var p = pts[i];
+      var hintIdle = "Scrub the line for time and value. Arrow keys also work. Dots are buys and sells.";
+      function applyHover(p, i) {
         if (!p) return;
         state.hover = p.equity;
+        state.hoverIdx = i;
         var hero = document.getElementById("hero-eq");
         if (hero) hero.textContent = money(p.equity);
         var hint = document.getElementById("chart-hint");
         if (hint) hint.textContent = when(new Date(p.t).toISOString()) + " · " + money(p.equity);
-      };
-      chart.onmouseleave = function () {
+      }
+      function clearHover() {
         state.hover = null;
+        state.hoverIdx = null;
         var hero = document.getElementById("hero-eq");
         if (hero) hero.textContent = money(state.book.equity);
         var hint = document.getElementById("chart-hint");
-        if (hint) hint.textContent = "Scrub the line for time and value. Dots are buys and sells.";
+        if (hint) hint.textContent = hintIdle;
+      }
+      chart.setAttribute("tabindex", "0");
+      chart.setAttribute("aria-label", "Account equity over time. Use arrow keys to scrub.");
+      chart.setAttribute("aria-describedby", "chart-hint");
+      chart.onpointermove = function (ev) {
+        var r = chart.getBoundingClientRect();
+        var x = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width));
+        var i = Math.round(x * (pts.length - 1));
+        applyHover(pts[i], i);
+      };
+      chart.onpointerleave = function () {
+        if (document.activeElement !== chart) clearHover();
+      };
+      chart.onblur = function () {
+        clearHover();
+      };
+      chart.onkeydown = function (ev) {
+        if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+        ev.preventDefault();
+        var i = state.hoverIdx == null ? pts.length - 1 : state.hoverIdx;
+        i = ev.key === "ArrowLeft" ? Math.max(0, i - 1) : Math.min(pts.length - 1, i + 1);
+        applyHover(pts[i], i);
       };
     }
   }
@@ -709,7 +752,9 @@
     if (dock) dock.innerHTML = navHtml();
     if (!root) return;
     if (!book) {
-      root.innerHTML = '<p class="empty">Loading the live book…</p>';
+      root.innerHTML = state.loadError
+        ? '<p class="empty">Could not load the live book. Refresh to try again.</p>'
+        : '<p class="empty">Loading the live book…</p>';
       return;
     }
     if (state.view === "activity") root.innerHTML = activity(book);
@@ -725,16 +770,28 @@
         return r.ok ? r.json() : null;
       })
       .then(function (book) {
-        if (book) state.book = book;
+        if (book) {
+          state.book = book;
+          state.loadError = false;
+        } else if (!state.book) {
+          state.loadError = true;
+        }
         render();
       })
       .catch(function () {
+        if (!state.book) state.loadError = true;
         render();
       });
   }
 
   document.getElementById("sheet").addEventListener("click", function (ev) {
     if (ev.target === this || (ev.target && ev.target.getAttribute && ev.target.getAttribute("data-close"))) {
+      state.selected = null;
+      renderSheet();
+    }
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && state.selected) {
       state.selected = null;
       renderSheet();
     }
