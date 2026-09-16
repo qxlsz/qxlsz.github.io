@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-16T12:31:34Z",
+  "asOf": "2026-09-16T13:35:07Z",
   "createdAt": "2026-09-01T19:39:42.587Z",
   "startCash": 1000000,
   "cash": 656408.8962879919,
@@ -16,15 +16,15 @@
     "reason": "We bought Avalanche USD as the 24/7 risk sleeve — crypto still prints when cash equities are shut, with a stop under the recent range."
   },
   "holdings": [
-    {"ticker": "SPY", "name": "State Street SPDR S&P 500 ETF T", "qty": 210, "avgCost": 761.3605, "crypto": false, "last": 757.39, "sparkline": [757.8300170898438, 764.2899780273438, 760.8800048828125, 757.3900146484375], "dayPct": -0.00458680062613819, "value": 159051.9, "pnl": -833.8050000000032},
-    {"ticker": "TLT", "name": "iShares 20+ Year Treasury Bond ", "qty": 855, "avgCost": 81.8409, "crypto": false, "last": 80.71, "sparkline": [80.77999877929688, 80.87000274658203, 80.93000030517578, 80.70999908447266], "dayPct": -0.0027184023766983435, "value": 69007.04999999999, "pnl": -966.9195000000095},
-    {"ticker": "BTC-USD", "name": "Bitcoin USD", "qty": 0.349757, "avgCost": 77367.9146, "crypto": true, "last": 75842.02, "sparkline": [76838.15625, 78163.3828125, 75612.5078125, 75842.0234375], "dayPct": 0.003035373301850225, "value": 26526.27738914, "pnl": -533.6923176121999},
-    {"ticker": "META", "name": "Meta Platforms, Inc.", "qty": 26, "avgCost": 580.8003, "crypto": false, "last": 670.24, "sparkline": [644.3800048828125, 648.030029296875, 665.5999755859375, 670.239990234375], "dayPct": 0.006971190781637014, "value": 17426.24, "pnl": 2325.4322},
-    {"ticker": "LTC-USD", "name": "Litecoin USD", "qty": 327.439054, "avgCost": 49.5848, "crypto": true, "last": 50.599, "sparkline": [53.734256744384766, 53.12104797363281, 51.253684997558594, 50.5989990234375], "dayPct": -0.012773422976119322, "value": 16568.088693346, "pnl": 332.08868856679845},
-    {"ticker": "WMT", "name": "Walmart Inc.", "qty": 143, "avgCost": 105.8979, "crypto": false, "last": 108.09, "sparkline": [105.7300033569336, 107.1500015258789, 109.08000183105469, 108.08999633789062], "dayPct": -0.00907592422475404, "value": 15456.87, "pnl": 313.4702999999995},
-    {"ticker": "AAPL", "name": "Apple Inc.", "qty": 46, "avgCost": 325.6327, "crypto": false, "last": 331.34, "sparkline": [326.57000732421875, 332.2699890136719, 333.0799865722656, 331.3399963378906], "dayPct": -0.005223930114120319, "value": 15241.64, "pnl": 262.53579999999886},
-    {"ticker": "UNH", "name": "UnitedHealth Group Incorporated", "qty": 38, "avgCost": 396.4381, "crypto": false, "last": 375.93, "sparkline": [388.2799987792969, 379.0899963378906, 383.54998779296875, 375.92999267578125], "dayPct": -0.01986700048360276, "value": 14285.34, "pnl": -779.3078000000005},
-    {"ticker": "AVAX-USD", "name": "Avalanche USD", "qty": 1401.278723, "avgCost": 7.2416, "crypto": true, "last": 7.275, "sparkline": [7.291378021240234, 7.561275959014893, 7.273458957672119, 7.275000095367432], "dayPct": 0.00021187200434474266, "value": 10194.302709825, "pnl": 46.802709348200445}
+    {"ticker": "SPY", "name": "State Street SPDR S&P 500 ETF T", "qty": 210, "avgCost": 761.3605, "crypto": false, "last": 759.2, "sparkline": [764.2899780273438, 760.8800048828125, 757.3900146484375, 759.2000122070312], "dayPct": -0.004197271773347235, "value": 159432.0, "pnl": -453.70499999999083},
+    {"ticker": "TLT", "name": "iShares 20+ Year Treasury Bond ", "qty": 855, "avgCost": 81.8409, "crypto": false, "last": 81.02, "sparkline": [80.87000274658203, 80.93000030517578, 80.70999908447266, 81.0199966430664], "dayPct": -0.00868714058485266, "value": 69272.09999999999, "pnl": -701.8695000000075},
+    {"ticker": "BTC-USD", "name": "Bitcoin USD", "qty": 0.349757, "avgCost": 77367.9146, "crypto": true, "last": 75587.64, "sparkline": [76838.15625, 78163.3828125, 75612.5078125, 75587.640625], "dayPct": -0.021778436186553566, "value": 26437.30620348, "pnl": -622.6635032722015},
+    {"ticker": "META", "name": "Meta Platforms, Inc.", "qty": 26, "avgCost": 580.8003, "crypto": false, "last": 680.255, "sparkline": [648.030029296875, 665.5999755859375, 670.239990234375, 680.2550048828125], "dayPct": 0.04063852896632951, "value": 17686.63, "pnl": 2585.8222},
+    {"ticker": "LTC-USD", "name": "Litecoin USD", "qty": 327.439054, "avgCost": 49.5848, "crypto": true, "last": 50.601, "sparkline": [53.734256744384766, 53.12104797363281, 51.253684997558594, 50.60100173950195], "dayPct": -0.05662786923480051, "value": 16568.743571454, "pnl": 332.7435666747993},
+    {"ticker": "WMT", "name": "Walmart Inc.", "qty": 143, "avgCost": 105.8979, "crypto": false, "last": 108.143, "sparkline": [107.1500015258789, 109.08000183105469, 108.08999633789062, 108.14250183105469], "dayPct": 0.021855806482093947, "value": 15464.449, "pnl": 321.0492999999991},
+    {"ticker": "AAPL", "name": "Apple Inc.", "qty": 46, "avgCost": 325.6327, "crypto": false, "last": 334.04, "sparkline": [332.2699890136719, 333.0799865722656, 331.3399963378906, 334.0400085449219], "dayPct": 0.05930107185894605, "value": 15365.84, "pnl": 386.73580000000095},
+    {"ticker": "UNH", "name": "UnitedHealth Group Incorporated", "qty": 38, "avgCost": 396.4381, "crypto": false, "last": 377.22, "sparkline": [379.0899963378906, 383.54998779296875, 375.92999267578125, 377.2200012207031], "dayPct": -0.04029919096321166, "value": 14334.36, "pnl": -730.2877999999997},
+    {"ticker": "AVAX-USD", "name": "Avalanche USD", "qty": 1401.278723, "avgCost": 7.2416, "crypto": true, "last": 7.254, "sparkline": [7.291378021240234, 7.561275959014893, 7.273458957672119, 7.254000186920166], "dayPct": -0.019834501474234354, "value": 10164.875856641998, "pnl": 17.37585616519933}
   ],
   "fills": [
     {"side": "buy", "ticker": "AVAX-USD", "name": "Avalanche USD", "at": "2026-09-01T19:41:07.013Z", "qty": 1401.278723, "price": 7.2416},
@@ -45,9 +45,9 @@
     "title": "Relative strength vs the S&P",
     "body": "Only add names that are beating SPY with real volume. Flatten the day-trader sleeve into the close. Fine the book if it finishes red versus the daily loan hurdle."
   },
-  "invested": 343757.708792311,
-  "equity": 1000166.6050803029,
-  "deployPct": 0.3437004465518131,
-  "dayUsd": -2.354813596000895,
-  "dayPct": -2.35441579415812e-06
+  "invested": 344726.304631576,
+  "equity": 1001135.2009195678,
+  "deployPct": 0.34433541475210966,
+  "dayUsd": -1788.1708831291048,
+  "dayPct": -0.0017861432516673322
 }
